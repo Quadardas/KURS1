@@ -164,7 +164,7 @@ namespace KURS1
         }
      void pustoy()
         {
-
+            //я нассу тебе на ебало гей
         }   
     }
 }
