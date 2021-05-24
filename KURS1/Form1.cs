@@ -162,10 +162,7 @@ namespace KURS1
             Works database = new Works(Credentials);
             listBox1.Items.Add(database.addMeasure(MeasureNameTB.Text, MeasureKrNameTB.Text));
         }
-     void pustoy()
-        {
-            //я нассу тебе на ебало гей
-        }   
+     
     }
 }
     
