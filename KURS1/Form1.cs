@@ -113,7 +113,7 @@ namespace KURS1
             {
                 case "Вид_товара":  VidTovaraTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); break;
                 case "Магазин":  ShopNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); ShopKrNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
-                case "Товар": NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); break;
+                case "Товар": ShopChangeCB.SelectedItem = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value; NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
                 case "Паспорт": SerPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); NomPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); datePass.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value); KemPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();break;
             }
         }
