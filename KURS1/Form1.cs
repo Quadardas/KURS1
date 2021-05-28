@@ -18,8 +18,20 @@ namespace KURS1
 
         private void AddPassBTN_Click(object sender, EventArgs e)
         {
-            Works works = new Works(Credentials);
-            dataGridView1.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView;
+            Works database = new Works(Credentials);
+            listBox1.Items.Add(database.addPass(SerPassTB.Text, NomPassTB.Text, datePass.Value, KemPassTB.Text));
+        }
+        private void EditPassBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            if (tempeID != -1) { listBox1.Items.Add(database.editPass(SerPassTB.Text, NomPassTB.Text, datePass.Value, KemPassTB.Text, tempeID)); tempeID = -1; }
+        }
+    
+
+        private void DeletePassBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            if (tempeID != -1) { listBox1.Items.Add(database.deletePass(tempeID)); tempeID = -1; }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +56,7 @@ namespace KURS1
         {
             VidTovCB.Items.Clear(); // При добавлении нас.пункта
             ShopChangeCB.Items.Clear();
+            MeasureCB.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 VidTovCB.Items.Add(i);
@@ -51,6 +64,10 @@ namespace KURS1
             foreach(string i in BufferListUpdate(1))
             {
                 MeasureCB.Items.Add(i);
+            }
+            foreach (string i in BufferListUpdate(2))
+            {
+                ShopChangeCB.Items.Add(i);
             }
 
         }
@@ -75,14 +92,15 @@ namespace KURS1
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
+                case 2: // Заполнение видов товара
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Название", "Магазин", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
             }
             return Temp;
-        }
-
-        private void VidTovAddBTN_Click_1(object sender, EventArgs e)
-        {
-            Works database = new Works(Credentials);
-            listBox1.Items.Add(database.addVidTov(VidTovaraTB.Text));
         }
 
         int tempeID = -1;
@@ -96,9 +114,15 @@ namespace KURS1
                 case "Вид_товара":  VidTovaraTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); break;
                 case "Магазин":  ShopNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); ShopKrNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
                 case "Товар": NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); break;
+                case "Паспорт": SerPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); NomPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); datePass.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value); KemPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();break;
             }
         }
-
+        #region вид товара
+        private void VidTovAddBTN_Click_1(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            listBox1.Items.Add(database.addVidTov(VidTovaraTB.Text));
+        }
         private void VidTovDeleteBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
@@ -110,7 +134,8 @@ namespace KURS1
             Works database = new Works(Credentials);
             if (tempeID != -1) { listBox1.Items.Add(database.editVidTov(VidTovaraTB.Text, tempeID)); tempeID = -1; }
         }
-
+        #endregion
+        #region магазин
         private void ShopAddBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
@@ -120,7 +145,7 @@ namespace KURS1
         private void ShopDeleteBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
-            if (tempeID != -1) { listBox1.Items.Add(database.editShop(ShopNazvTB.Text, ShopKrNazvTB.Text, tempeID)); tempeID = -1; }
+            if (tempeID != -1) { listBox1.Items.Add(database.deleteShop(tempeID)); tempeID = -1; }
         }
 
         private void ShopEditBTN_Click(object sender, EventArgs e)
@@ -128,7 +153,8 @@ namespace KURS1
             Works database = new Works(Credentials);
             if (tempeID != -1) { listBox1.Items.Add(database.editShop(ShopNazvTB.Text, ShopKrNazvTB.Text, tempeID)); tempeID = -1; }
         }
-
+        #endregion 
+        #region товар
         private void AddItemBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
@@ -142,7 +168,14 @@ namespace KURS1
             Works database = new Works(Credentials);
             if (tempeID != -1) { listBox1.Items.Add(database.editItem(NameTovTB.Text, DesTovTB.Text, Convert.ToInt32(AmountTov.Value), Convert.ToInt32(PriceTov.Value), tempeID)); tempeID = -1; }
         }
-       // GetDirCode("Магазин", ShopChangeCB.SelectedItem.ToString(), 0), GetDirCode("Вид_Товара", VidTovCB.SelectedItem.ToString(), 0),
+        private void DeleteItemBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            if (tempeID != -1) { listBox1.Items.Add(database.deleteItem(tempeID)); tempeID = -1; }
+        }
+        #endregion
+
+        // GetDirCode("Магазин", ShopChangeCB.SelectedItem.ToString(), 0), GetDirCode("Вид_Товара", VidTovCB.SelectedItem.ToString(), 0),
         int GetDirCode(string Table, string ToFind, int cell) // Вернуть код (итератор) из справочника
         {
             Works database = new Works(Credentials);
@@ -162,7 +195,8 @@ namespace KURS1
             Works database = new Works(Credentials);
             listBox1.Items.Add(database.addMeasure(MeasureNameTB.Text, MeasureKrNameTB.Text));
         }
-     
+
+        
     }
 }
     

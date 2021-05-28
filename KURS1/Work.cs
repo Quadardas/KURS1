@@ -26,6 +26,46 @@ namespace KURS1
             sqlData.Fill(Temp);
             return Temp;
         }
+        public string addPass(string ser, string nom, DateTime date, string kem)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Паспорт (Серия, Номер, Дата_Выдачи, Кем_выдан) VALUES ('{ser}', '{nom}', '{date}', '{kem}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
+        public string deletePass(int ID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM Паспорт WHERE Код = {ID}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string editPass(string edit, string edit1, DateTime edit2, string edit3, int id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE Паспорт SET Серия = '{edit}', Номер = '{edit1}', Дата_Выдачи = '{edit2}', Кем_выдан = '{edit3}' WHERE Код = {id};", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
 
         public string addVidTov(string VidTov)
         {
@@ -111,7 +151,7 @@ namespace KURS1
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Товар (Наименование, Описание, Количество, Цена, TypeID, MeasureID ) VALUES ('{name}', '{opis}','{kol}','{price}', '{typeID}', '{measureID}')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO Товар (Наименование, Описание, Количество, Цена, TypeID, MeasureID ) VALUES ('{name}', '{opis}', {kol}, {price}, {typeID}, {measureID})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -124,12 +164,24 @@ namespace KURS1
         {
             try
             {
-                SqlCommand command = new SqlCommand($"UPDATE Товар SET Наименование = '{edit}', Описание = '{edit1}', Количество = '{edit2}', Цена = '{edit3}' WHERE Код = {id};", connection);
+                SqlCommand command = new SqlCommand($"UPDATE Товар SET Наименование = '{edit}', Описание = '{edit1}', Количество = {edit2}, Цена = {edit3} WHERE Код = {id};", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
             {
 
+                return e.ToString();
+            }
+        }
+        public string deleteItem(int ID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM Товар WHERE Код = {ID}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
                 return e.ToString();
             }
         }

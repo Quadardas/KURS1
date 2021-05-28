@@ -50,6 +50,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.MeasureCB = new System.Windows.Forms.ComboBox();
             this.DeleteItemBTN = new System.Windows.Forms.Button();
             this.EditItemBTN = new System.Windows.Forms.Button();
             this.DesTovTB = new System.Windows.Forms.TextBox();
@@ -64,9 +65,24 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.MeasureCB = new System.Windows.Forms.ComboBox();
+            this.SerPassTB = new System.Windows.Forms.TextBox();
+            this.NomPassTB = new System.Windows.Forms.TextBox();
+            this.datePass = new System.Windows.Forms.DateTimePicker();
+            this.KemPassTB = new System.Windows.Forms.TextBox();
+            this.EditPassBTN = new System.Windows.Forms.Button();
+            this.DeletePassBTN = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AddClientBTN = new System.Windows.Forms.Button();
+            this.EditClientBTN = new System.Windows.Forms.Button();
+            this.DeleteClientBTN = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -93,24 +109,30 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(569, 501);
+            this.tabControl1.Size = new System.Drawing.Size(614, 501);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.DeletePassBTN);
+            this.tabPage1.Controls.Add(this.EditPassBTN);
+            this.tabPage1.Controls.Add(this.KemPassTB);
+            this.tabPage1.Controls.Add(this.datePass);
+            this.tabPage1.Controls.Add(this.NomPassTB);
+            this.tabPage1.Controls.Add(this.SerPassTB);
             this.tabPage1.Controls.Add(this.AddPassBTN);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(561, 475);
+            this.tabPage1.Size = new System.Drawing.Size(606, 475);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Паспорт";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // AddPassBTN
             // 
-            this.AddPassBTN.Location = new System.Drawing.Point(420, 389);
+            this.AddPassBTN.Location = new System.Drawing.Point(7, 189);
             this.AddPassBTN.Name = "AddPassBTN";
             this.AddPassBTN.Size = new System.Drawing.Size(75, 23);
             this.AddPassBTN.TabIndex = 0;
@@ -120,12 +142,21 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.DeleteClientBTN);
+            this.tabPage2.Controls.Add(this.EditClientBTN);
+            this.tabPage2.Controls.Add(this.AddClientBTN);
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(561, 475);
+            this.tabPage2.Size = new System.Drawing.Size(606, 475);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Клиент";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
@@ -137,9 +168,9 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(561, 475);
+            this.tabPage3.Size = new System.Drawing.Size(606, 475);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Вид товара";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // EditVidTovBTN
@@ -187,9 +218,9 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(561, 475);
+            this.tabPage4.Size = new System.Drawing.Size(606, 475);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "Единица измерения";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // AddMeasure
@@ -226,9 +257,9 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(561, 475);
+            this.tabPage5.Size = new System.Drawing.Size(606, 475);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.Text = "Магазин";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // ShopKrNazvTB
@@ -280,9 +311,9 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(561, 475);
+            this.tabPage6.Size = new System.Drawing.Size(606, 475);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.Text = "Накладная";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
@@ -290,9 +321,9 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(561, 475);
+            this.tabPage7.Size = new System.Drawing.Size(606, 475);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.Text = "Поступление";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
@@ -310,10 +341,18 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(561, 475);
+            this.tabPage8.Size = new System.Drawing.Size(606, 475);
             this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.Text = "Товар";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // MeasureCB
+            // 
+            this.MeasureCB.FormattingEnabled = true;
+            this.MeasureCB.Location = new System.Drawing.Point(157, 6);
+            this.MeasureCB.Name = "MeasureCB";
+            this.MeasureCB.Size = new System.Drawing.Size(121, 21);
+            this.MeasureCB.TabIndex = 9;
             // 
             // DeleteItemBTN
             // 
@@ -323,6 +362,7 @@
             this.DeleteItemBTN.TabIndex = 8;
             this.DeleteItemBTN.Text = "button3";
             this.DeleteItemBTN.UseVisualStyleBackColor = true;
+            this.DeleteItemBTN.Click += new System.EventHandler(this.DeleteItemBTN_Click);
             // 
             // EditItemBTN
             // 
@@ -394,9 +434,9 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(561, 475);
+            this.tabPage9.Size = new System.Drawing.Size(606, 475);
             this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "tabPage9";
+            this.tabPage9.Text = "Продажа";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // listBox1
@@ -411,7 +451,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(576, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(621, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(330, 476);
@@ -434,19 +474,129 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // MeasureCB
+            // SerPassTB
             // 
-            this.MeasureCB.FormattingEnabled = true;
-            this.MeasureCB.Location = new System.Drawing.Point(157, 6);
-            this.MeasureCB.Name = "MeasureCB";
-            this.MeasureCB.Size = new System.Drawing.Size(121, 21);
-            this.MeasureCB.TabIndex = 9;
+            this.SerPassTB.Location = new System.Drawing.Point(7, 6);
+            this.SerPassTB.Name = "SerPassTB";
+            this.SerPassTB.Size = new System.Drawing.Size(100, 20);
+            this.SerPassTB.TabIndex = 1;
+            // 
+            // NomPassTB
+            // 
+            this.NomPassTB.Location = new System.Drawing.Point(7, 32);
+            this.NomPassTB.Name = "NomPassTB";
+            this.NomPassTB.Size = new System.Drawing.Size(100, 20);
+            this.NomPassTB.TabIndex = 2;
+            // 
+            // datePass
+            // 
+            this.datePass.Location = new System.Drawing.Point(7, 58);
+            this.datePass.Name = "datePass";
+            this.datePass.Size = new System.Drawing.Size(200, 20);
+            this.datePass.TabIndex = 3;
+            // 
+            // KemPassTB
+            // 
+            this.KemPassTB.Location = new System.Drawing.Point(7, 84);
+            this.KemPassTB.Name = "KemPassTB";
+            this.KemPassTB.Size = new System.Drawing.Size(100, 20);
+            this.KemPassTB.TabIndex = 4;
+            // 
+            // EditPassBTN
+            // 
+            this.EditPassBTN.Location = new System.Drawing.Point(104, 189);
+            this.EditPassBTN.Name = "EditPassBTN";
+            this.EditPassBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditPassBTN.TabIndex = 5;
+            this.EditPassBTN.Text = "button1";
+            this.EditPassBTN.UseVisualStyleBackColor = true;
+            this.EditPassBTN.Click += new System.EventHandler(this.EditPassBTN_Click);
+            // 
+            // DeletePassBTN
+            // 
+            this.DeletePassBTN.Location = new System.Drawing.Point(201, 189);
+            this.DeletePassBTN.Name = "DeletePassBTN";
+            this.DeletePassBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeletePassBTN.TabIndex = 6;
+            this.DeletePassBTN.Text = "button2";
+            this.DeletePassBTN.UseVisualStyleBackColor = true;
+            this.DeletePassBTN.Click += new System.EventHandler(this.DeletePassBTN_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(7, 32);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(8, 59);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(8, 85);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(8, 111);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(8, 137);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // AddClientBTN
+            // 
+            this.AddClientBTN.Location = new System.Drawing.Point(7, 182);
+            this.AddClientBTN.Name = "AddClientBTN";
+            this.AddClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.AddClientBTN.TabIndex = 6;
+            this.AddClientBTN.Text = "button1";
+            this.AddClientBTN.UseVisualStyleBackColor = true;
+            // 
+            // EditClientBTN
+            // 
+            this.EditClientBTN.Location = new System.Drawing.Point(105, 182);
+            this.EditClientBTN.Name = "EditClientBTN";
+            this.EditClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditClientBTN.TabIndex = 7;
+            this.EditClientBTN.Text = "button2";
+            this.EditClientBTN.UseVisualStyleBackColor = true;
+            // 
+            // DeleteClientBTN
+            // 
+            this.DeleteClientBTN.Location = new System.Drawing.Point(214, 182);
+            this.DeleteClientBTN.Name = "DeleteClientBTN";
+            this.DeleteClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeleteClientBTN.TabIndex = 8;
+            this.DeleteClientBTN.Text = "button3";
+            this.DeleteClientBTN.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 508);
+            this.ClientSize = new System.Drawing.Size(960, 508);
             this.Controls.Add(this.dataGridViewListReturner);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -455,6 +605,9 @@
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -512,6 +665,21 @@
         private System.Windows.Forms.TextBox MeasureKrNameTB;
         private System.Windows.Forms.TextBox MeasureNameTB;
         private System.Windows.Forms.ComboBox MeasureCB;
+        private System.Windows.Forms.TextBox KemPassTB;
+        private System.Windows.Forms.DateTimePicker datePass;
+        private System.Windows.Forms.TextBox NomPassTB;
+        private System.Windows.Forms.TextBox SerPassTB;
+        private System.Windows.Forms.Button DeletePassBTN;
+        private System.Windows.Forms.Button EditPassBTN;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button DeleteClientBTN;
+        private System.Windows.Forms.Button EditClientBTN;
+        private System.Windows.Forms.Button AddClientBTN;
     }
 }
 
