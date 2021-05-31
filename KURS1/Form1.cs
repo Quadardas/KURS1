@@ -15,7 +15,7 @@ namespace KURS1
             "Server = localhost;" +
             "Integrated security = SSPI;" +
             "database = Анализ_Продаж;";
-
+        #region паспорт
         private void AddPassBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
@@ -33,7 +33,7 @@ namespace KURS1
             Works database = new Works(Credentials);
             if (tempeID != -1) { listBox1.Items.Add(database.deletePass(tempeID)); tempeID = -1; }
         }
-
+        #endregion
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {  
             Works works = new Works(Credentials);
@@ -47,7 +47,7 @@ namespace KURS1
                 case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
                 case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
                 case 7: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Наименование, Количество, Цена, Описание", "Товар", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
-                case 8: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
+                case 8: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
 
             }
         }
@@ -71,7 +71,7 @@ namespace KURS1
             }
 
         }
-
+        DataGridViewCellEventArgs e;
         List<string> BufferListUpdate(int Index)
         {
             Works database = new Works(Credentials);
@@ -107,13 +107,14 @@ namespace KURS1
         string selectedTable;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Works database = new Works(Credentials);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tempeID = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
             switch (selectedTable)
             {
                 case "Вид_товара":  VidTovaraTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); break;
                 case "Магазин":  ShopNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); ShopKrNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
-                case "Товар": ShopChangeCB.SelectedItem = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value; NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
+                case "Товар": ShopChangeCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString(); VidTovCB.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString(); NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
                 case "Паспорт": SerPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); NomPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); datePass.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value); KemPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();break;
             }
         }

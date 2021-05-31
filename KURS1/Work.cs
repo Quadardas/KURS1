@@ -205,5 +205,19 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string returnMeasureName(int id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"SELECT Вид_товара FROM Вид_товара WHERE Код = {id}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
     }
 }

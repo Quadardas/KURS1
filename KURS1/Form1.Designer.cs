@@ -71,12 +71,12 @@
             this.KemPassTB = new System.Windows.Forms.TextBox();
             this.EditPassBTN = new System.Windows.Forms.Button();
             this.DeletePassBTN = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.NameClientTB = new System.Windows.Forms.TextBox();
+            this.FamClientTB = new System.Windows.Forms.TextBox();
+            this.OtchClientTB = new System.Windows.Forms.TextBox();
+            this.dateClientTP = new System.Windows.Forms.DateTimePicker();
+            this.PhoneClientTB = new System.Windows.Forms.TextBox();
+            this.PassIDTB = new System.Windows.Forms.ComboBox();
             this.AddClientBTN = new System.Windows.Forms.Button();
             this.EditClientBTN = new System.Windows.Forms.Button();
             this.DeleteClientBTN = new System.Windows.Forms.Button();
@@ -145,12 +145,12 @@
             this.tabPage2.Controls.Add(this.DeleteClientBTN);
             this.tabPage2.Controls.Add(this.EditClientBTN);
             this.tabPage2.Controls.Add(this.AddClientBTN);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.PassIDTB);
+            this.tabPage2.Controls.Add(this.PhoneClientTB);
+            this.tabPage2.Controls.Add(this.dateClientTP);
+            this.tabPage2.Controls.Add(this.OtchClientTB);
+            this.tabPage2.Controls.Add(this.FamClientTB);
+            this.tabPage2.Controls.Add(this.NameClientTB);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -522,48 +522,48 @@
             this.DeletePassBTN.UseVisualStyleBackColor = true;
             this.DeletePassBTN.Click += new System.EventHandler(this.DeletePassBTN_Click);
             // 
-            // textBox1
+            // NameClientTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.NameClientTB.Location = new System.Drawing.Point(7, 6);
+            this.NameClientTB.Name = "NameClientTB";
+            this.NameClientTB.Size = new System.Drawing.Size(100, 20);
+            this.NameClientTB.TabIndex = 0;
             // 
-            // textBox2
+            // FamClientTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.FamClientTB.Location = new System.Drawing.Point(7, 32);
+            this.FamClientTB.Name = "FamClientTB";
+            this.FamClientTB.Size = new System.Drawing.Size(100, 20);
+            this.FamClientTB.TabIndex = 1;
             // 
-            // textBox3
+            // OtchClientTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.OtchClientTB.Location = new System.Drawing.Point(8, 59);
+            this.OtchClientTB.Name = "OtchClientTB";
+            this.OtchClientTB.Size = new System.Drawing.Size(100, 20);
+            this.OtchClientTB.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dateClientTP
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(8, 85);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dateClientTP.Location = new System.Drawing.Point(8, 85);
+            this.dateClientTP.Name = "dateClientTP";
+            this.dateClientTP.Size = new System.Drawing.Size(100, 20);
+            this.dateClientTP.TabIndex = 3;
             // 
-            // textBox4
+            // PhoneClientTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 111);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.PhoneClientTB.Location = new System.Drawing.Point(8, 111);
+            this.PhoneClientTB.Name = "PhoneClientTB";
+            this.PhoneClientTB.Size = new System.Drawing.Size(100, 20);
+            this.PhoneClientTB.TabIndex = 4;
             // 
-            // comboBox1
+            // PassIDTB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(8, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 5;
+            this.PassIDTB.FormattingEnabled = true;
+            this.PassIDTB.Location = new System.Drawing.Point(8, 137);
+            this.PassIDTB.Name = "PassIDTB";
+            this.PassIDTB.Size = new System.Drawing.Size(100, 21);
+            this.PassIDTB.TabIndex = 5;
             // 
             // AddClientBTN
             // 
@@ -596,7 +596,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 508);
+            this.ClientSize = new System.Drawing.Size(1441, 508);
             this.Controls.Add(this.dataGridViewListReturner);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -671,12 +671,12 @@
         private System.Windows.Forms.TextBox SerPassTB;
         private System.Windows.Forms.Button DeletePassBTN;
         private System.Windows.Forms.Button EditPassBTN;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox PassIDTB;
+        private System.Windows.Forms.TextBox PhoneClientTB;
+        private System.Windows.Forms.DateTimePicker dateClientTP;
+        private System.Windows.Forms.TextBox OtchClientTB;
+        private System.Windows.Forms.TextBox FamClientTB;
+        private System.Windows.Forms.TextBox NameClientTB;
         private System.Windows.Forms.Button DeleteClientBTN;
         private System.Windows.Forms.Button EditClientBTN;
         private System.Windows.Forms.Button AddClientBTN;
