@@ -205,6 +205,31 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string editMeasure(string edit, string edit1, int id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE Единица_Измерения SET Наименование = '{edit}', Краткое_наименование = '{edit1}', WHERE Код = {id};", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+        public string deleteMeasure(int ID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM Единица_Измерения WHERE Код = {ID}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
         public string returnMeasureName(int id)
         {
             try

@@ -30,8 +30,23 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DeletePassBTN = new System.Windows.Forms.Button();
+            this.EditPassBTN = new System.Windows.Forms.Button();
+            this.KemPassTB = new System.Windows.Forms.TextBox();
+            this.datePass = new System.Windows.Forms.DateTimePicker();
+            this.NomPassTB = new System.Windows.Forms.TextBox();
+            this.SerPassTB = new System.Windows.Forms.TextBox();
             this.AddPassBTN = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DeleteClientBTN = new System.Windows.Forms.Button();
+            this.EditClientBTN = new System.Windows.Forms.Button();
+            this.AddClientBTN = new System.Windows.Forms.Button();
+            this.PassIDTB = new System.Windows.Forms.ComboBox();
+            this.PhoneClientTB = new System.Windows.Forms.TextBox();
+            this.dateClientTP = new System.Windows.Forms.DateTimePicker();
+            this.OtchClientTB = new System.Windows.Forms.TextBox();
+            this.FamClientTB = new System.Windows.Forms.TextBox();
+            this.NameClientTB = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.EditVidTovBTN = new System.Windows.Forms.Button();
             this.VidTovDeleteBTN = new System.Windows.Forms.Button();
@@ -65,21 +80,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.SerPassTB = new System.Windows.Forms.TextBox();
-            this.NomPassTB = new System.Windows.Forms.TextBox();
-            this.datePass = new System.Windows.Forms.DateTimePicker();
-            this.KemPassTB = new System.Windows.Forms.TextBox();
-            this.EditPassBTN = new System.Windows.Forms.Button();
-            this.DeletePassBTN = new System.Windows.Forms.Button();
-            this.NameClientTB = new System.Windows.Forms.TextBox();
-            this.FamClientTB = new System.Windows.Forms.TextBox();
-            this.OtchClientTB = new System.Windows.Forms.TextBox();
-            this.dateClientTP = new System.Windows.Forms.DateTimePicker();
-            this.PhoneClientTB = new System.Windows.Forms.TextBox();
-            this.PassIDTB = new System.Windows.Forms.ComboBox();
-            this.AddClientBTN = new System.Windows.Forms.Button();
-            this.EditClientBTN = new System.Windows.Forms.Button();
-            this.DeleteClientBTN = new System.Windows.Forms.Button();
+            this.EditMeasureBTN = new System.Windows.Forms.Button();
+            this.DeleteMeasureBTN = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -130,6 +132,54 @@
             this.tabPage1.Text = "Паспорт";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // DeletePassBTN
+            // 
+            this.DeletePassBTN.Location = new System.Drawing.Point(201, 189);
+            this.DeletePassBTN.Name = "DeletePassBTN";
+            this.DeletePassBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeletePassBTN.TabIndex = 6;
+            this.DeletePassBTN.Text = "button2";
+            this.DeletePassBTN.UseVisualStyleBackColor = true;
+            this.DeletePassBTN.Click += new System.EventHandler(this.DeletePassBTN_Click);
+            // 
+            // EditPassBTN
+            // 
+            this.EditPassBTN.Location = new System.Drawing.Point(104, 189);
+            this.EditPassBTN.Name = "EditPassBTN";
+            this.EditPassBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditPassBTN.TabIndex = 5;
+            this.EditPassBTN.Text = "button1";
+            this.EditPassBTN.UseVisualStyleBackColor = true;
+            this.EditPassBTN.Click += new System.EventHandler(this.EditPassBTN_Click);
+            // 
+            // KemPassTB
+            // 
+            this.KemPassTB.Location = new System.Drawing.Point(7, 84);
+            this.KemPassTB.Name = "KemPassTB";
+            this.KemPassTB.Size = new System.Drawing.Size(100, 20);
+            this.KemPassTB.TabIndex = 4;
+            // 
+            // datePass
+            // 
+            this.datePass.Location = new System.Drawing.Point(7, 58);
+            this.datePass.Name = "datePass";
+            this.datePass.Size = new System.Drawing.Size(200, 20);
+            this.datePass.TabIndex = 3;
+            // 
+            // NomPassTB
+            // 
+            this.NomPassTB.Location = new System.Drawing.Point(7, 32);
+            this.NomPassTB.Name = "NomPassTB";
+            this.NomPassTB.Size = new System.Drawing.Size(100, 20);
+            this.NomPassTB.TabIndex = 2;
+            // 
+            // SerPassTB
+            // 
+            this.SerPassTB.Location = new System.Drawing.Point(7, 6);
+            this.SerPassTB.Name = "SerPassTB";
+            this.SerPassTB.Size = new System.Drawing.Size(100, 20);
+            this.SerPassTB.TabIndex = 1;
+            // 
             // AddPassBTN
             // 
             this.AddPassBTN.Location = new System.Drawing.Point(7, 189);
@@ -158,6 +208,76 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Клиент";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DeleteClientBTN
+            // 
+            this.DeleteClientBTN.Location = new System.Drawing.Point(214, 182);
+            this.DeleteClientBTN.Name = "DeleteClientBTN";
+            this.DeleteClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeleteClientBTN.TabIndex = 8;
+            this.DeleteClientBTN.Text = "button3";
+            this.DeleteClientBTN.UseVisualStyleBackColor = true;
+            // 
+            // EditClientBTN
+            // 
+            this.EditClientBTN.Location = new System.Drawing.Point(105, 182);
+            this.EditClientBTN.Name = "EditClientBTN";
+            this.EditClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditClientBTN.TabIndex = 7;
+            this.EditClientBTN.Text = "button2";
+            this.EditClientBTN.UseVisualStyleBackColor = true;
+            // 
+            // AddClientBTN
+            // 
+            this.AddClientBTN.Location = new System.Drawing.Point(7, 182);
+            this.AddClientBTN.Name = "AddClientBTN";
+            this.AddClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.AddClientBTN.TabIndex = 6;
+            this.AddClientBTN.Text = "button1";
+            this.AddClientBTN.UseVisualStyleBackColor = true;
+            // 
+            // PassIDTB
+            // 
+            this.PassIDTB.FormattingEnabled = true;
+            this.PassIDTB.Location = new System.Drawing.Point(8, 137);
+            this.PassIDTB.Name = "PassIDTB";
+            this.PassIDTB.Size = new System.Drawing.Size(100, 21);
+            this.PassIDTB.TabIndex = 5;
+            // 
+            // PhoneClientTB
+            // 
+            this.PhoneClientTB.Location = new System.Drawing.Point(8, 111);
+            this.PhoneClientTB.Name = "PhoneClientTB";
+            this.PhoneClientTB.Size = new System.Drawing.Size(100, 20);
+            this.PhoneClientTB.TabIndex = 4;
+            // 
+            // dateClientTP
+            // 
+            this.dateClientTP.Location = new System.Drawing.Point(8, 85);
+            this.dateClientTP.Name = "dateClientTP";
+            this.dateClientTP.Size = new System.Drawing.Size(100, 20);
+            this.dateClientTP.TabIndex = 3;
+            // 
+            // OtchClientTB
+            // 
+            this.OtchClientTB.Location = new System.Drawing.Point(8, 59);
+            this.OtchClientTB.Name = "OtchClientTB";
+            this.OtchClientTB.Size = new System.Drawing.Size(100, 20);
+            this.OtchClientTB.TabIndex = 2;
+            // 
+            // FamClientTB
+            // 
+            this.FamClientTB.Location = new System.Drawing.Point(7, 32);
+            this.FamClientTB.Name = "FamClientTB";
+            this.FamClientTB.Size = new System.Drawing.Size(100, 20);
+            this.FamClientTB.TabIndex = 1;
+            // 
+            // NameClientTB
+            // 
+            this.NameClientTB.Location = new System.Drawing.Point(7, 6);
+            this.NameClientTB.Name = "NameClientTB";
+            this.NameClientTB.Size = new System.Drawing.Size(100, 20);
+            this.NameClientTB.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -212,6 +332,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.DeleteMeasureBTN);
+            this.tabPage4.Controls.Add(this.EditMeasureBTN);
             this.tabPage4.Controls.Add(this.AddMeasure);
             this.tabPage4.Controls.Add(this.MeasureKrNameTB);
             this.tabPage4.Controls.Add(this.MeasureNameTB);
@@ -474,123 +596,25 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // SerPassTB
+            // EditMeasureBTN
             // 
-            this.SerPassTB.Location = new System.Drawing.Point(7, 6);
-            this.SerPassTB.Name = "SerPassTB";
-            this.SerPassTB.Size = new System.Drawing.Size(100, 20);
-            this.SerPassTB.TabIndex = 1;
+            this.EditMeasureBTN.Location = new System.Drawing.Point(108, 58);
+            this.EditMeasureBTN.Name = "EditMeasureBTN";
+            this.EditMeasureBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditMeasureBTN.TabIndex = 3;
+            this.EditMeasureBTN.Text = "button1";
+            this.EditMeasureBTN.UseVisualStyleBackColor = true;
+            this.EditMeasureBTN.Click += new System.EventHandler(this.EditMeasureBTN_Click);
             // 
-            // NomPassTB
+            // DeleteMeasureBTN
             // 
-            this.NomPassTB.Location = new System.Drawing.Point(7, 32);
-            this.NomPassTB.Name = "NomPassTB";
-            this.NomPassTB.Size = new System.Drawing.Size(100, 20);
-            this.NomPassTB.TabIndex = 2;
-            // 
-            // datePass
-            // 
-            this.datePass.Location = new System.Drawing.Point(7, 58);
-            this.datePass.Name = "datePass";
-            this.datePass.Size = new System.Drawing.Size(200, 20);
-            this.datePass.TabIndex = 3;
-            // 
-            // KemPassTB
-            // 
-            this.KemPassTB.Location = new System.Drawing.Point(7, 84);
-            this.KemPassTB.Name = "KemPassTB";
-            this.KemPassTB.Size = new System.Drawing.Size(100, 20);
-            this.KemPassTB.TabIndex = 4;
-            // 
-            // EditPassBTN
-            // 
-            this.EditPassBTN.Location = new System.Drawing.Point(104, 189);
-            this.EditPassBTN.Name = "EditPassBTN";
-            this.EditPassBTN.Size = new System.Drawing.Size(75, 23);
-            this.EditPassBTN.TabIndex = 5;
-            this.EditPassBTN.Text = "button1";
-            this.EditPassBTN.UseVisualStyleBackColor = true;
-            this.EditPassBTN.Click += new System.EventHandler(this.EditPassBTN_Click);
-            // 
-            // DeletePassBTN
-            // 
-            this.DeletePassBTN.Location = new System.Drawing.Point(201, 189);
-            this.DeletePassBTN.Name = "DeletePassBTN";
-            this.DeletePassBTN.Size = new System.Drawing.Size(75, 23);
-            this.DeletePassBTN.TabIndex = 6;
-            this.DeletePassBTN.Text = "button2";
-            this.DeletePassBTN.UseVisualStyleBackColor = true;
-            this.DeletePassBTN.Click += new System.EventHandler(this.DeletePassBTN_Click);
-            // 
-            // NameClientTB
-            // 
-            this.NameClientTB.Location = new System.Drawing.Point(7, 6);
-            this.NameClientTB.Name = "NameClientTB";
-            this.NameClientTB.Size = new System.Drawing.Size(100, 20);
-            this.NameClientTB.TabIndex = 0;
-            // 
-            // FamClientTB
-            // 
-            this.FamClientTB.Location = new System.Drawing.Point(7, 32);
-            this.FamClientTB.Name = "FamClientTB";
-            this.FamClientTB.Size = new System.Drawing.Size(100, 20);
-            this.FamClientTB.TabIndex = 1;
-            // 
-            // OtchClientTB
-            // 
-            this.OtchClientTB.Location = new System.Drawing.Point(8, 59);
-            this.OtchClientTB.Name = "OtchClientTB";
-            this.OtchClientTB.Size = new System.Drawing.Size(100, 20);
-            this.OtchClientTB.TabIndex = 2;
-            // 
-            // dateClientTP
-            // 
-            this.dateClientTP.Location = new System.Drawing.Point(8, 85);
-            this.dateClientTP.Name = "dateClientTP";
-            this.dateClientTP.Size = new System.Drawing.Size(100, 20);
-            this.dateClientTP.TabIndex = 3;
-            // 
-            // PhoneClientTB
-            // 
-            this.PhoneClientTB.Location = new System.Drawing.Point(8, 111);
-            this.PhoneClientTB.Name = "PhoneClientTB";
-            this.PhoneClientTB.Size = new System.Drawing.Size(100, 20);
-            this.PhoneClientTB.TabIndex = 4;
-            // 
-            // PassIDTB
-            // 
-            this.PassIDTB.FormattingEnabled = true;
-            this.PassIDTB.Location = new System.Drawing.Point(8, 137);
-            this.PassIDTB.Name = "PassIDTB";
-            this.PassIDTB.Size = new System.Drawing.Size(100, 21);
-            this.PassIDTB.TabIndex = 5;
-            // 
-            // AddClientBTN
-            // 
-            this.AddClientBTN.Location = new System.Drawing.Point(7, 182);
-            this.AddClientBTN.Name = "AddClientBTN";
-            this.AddClientBTN.Size = new System.Drawing.Size(75, 23);
-            this.AddClientBTN.TabIndex = 6;
-            this.AddClientBTN.Text = "button1";
-            this.AddClientBTN.UseVisualStyleBackColor = true;
-            // 
-            // EditClientBTN
-            // 
-            this.EditClientBTN.Location = new System.Drawing.Point(105, 182);
-            this.EditClientBTN.Name = "EditClientBTN";
-            this.EditClientBTN.Size = new System.Drawing.Size(75, 23);
-            this.EditClientBTN.TabIndex = 7;
-            this.EditClientBTN.Text = "button2";
-            this.EditClientBTN.UseVisualStyleBackColor = true;
-            // 
-            // DeleteClientBTN
-            // 
-            this.DeleteClientBTN.Location = new System.Drawing.Point(214, 182);
-            this.DeleteClientBTN.Name = "DeleteClientBTN";
-            this.DeleteClientBTN.Size = new System.Drawing.Size(75, 23);
-            this.DeleteClientBTN.TabIndex = 8;
-            this.DeleteClientBTN.Text = "button3";
-            this.DeleteClientBTN.UseVisualStyleBackColor = true;
+            this.DeleteMeasureBTN.Location = new System.Drawing.Point(220, 58);
+            this.DeleteMeasureBTN.Name = "DeleteMeasureBTN";
+            this.DeleteMeasureBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeleteMeasureBTN.TabIndex = 4;
+            this.DeleteMeasureBTN.Text = "button2";
+            this.DeleteMeasureBTN.UseVisualStyleBackColor = true;
+            this.DeleteMeasureBTN.Click += new System.EventHandler(this.DeleteMeasureBTN_Click);
             // 
             // Form1
             // 
@@ -680,6 +704,8 @@
         private System.Windows.Forms.Button DeleteClientBTN;
         private System.Windows.Forms.Button EditClientBTN;
         private System.Windows.Forms.Button AddClientBTN;
+        private System.Windows.Forms.Button DeleteMeasureBTN;
+        private System.Windows.Forms.Button EditMeasureBTN;
     }
 }
 
