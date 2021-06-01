@@ -46,7 +46,7 @@ namespace KURS1
                 case 4: selectedTable = "Магазин"; dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
                 case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
                 case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
-                case 7: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Наименование, Количество, Цена, Описание", "Товар", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
+                case 7: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер", "Товар, Вид_Товара, Единица_Измерения", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
                 case 8: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
 
             }
@@ -121,10 +121,9 @@ namespace KURS1
                     }
                 case "Товар":
                     {
-                        dataGridViewListReturner.DataSource = database.dataSet("Наименование", "Единица_Измерения", $"WHERE Код = {dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString()}");
                         ShopChangeCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString();
-                       // MeasureCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        VidTovCB.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        MeasureCB.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        VidTovCB.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                         NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                         AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
