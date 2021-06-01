@@ -53,6 +53,8 @@
             this.VidTovaraTB = new System.Windows.Forms.TextBox();
             this.VidTovAddBTN = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.DeleteMeasureBTN = new System.Windows.Forms.Button();
+            this.EditMeasureBTN = new System.Windows.Forms.Button();
             this.AddMeasure = new System.Windows.Forms.Button();
             this.MeasureKrNameTB = new System.Windows.Forms.TextBox();
             this.MeasureNameTB = new System.Windows.Forms.TextBox();
@@ -63,8 +65,8 @@
             this.ShopDeleteBTN = new System.Windows.Forms.Button();
             this.ShopAddBTN = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.MeasureCB = new System.Windows.Forms.ComboBox();
             this.DeleteItemBTN = new System.Windows.Forms.Button();
             this.EditItemBTN = new System.Windows.Forms.Button();
@@ -80,8 +82,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.EditMeasureBTN = new System.Windows.Forms.Button();
-            this.DeleteMeasureBTN = new System.Windows.Forms.Button();
+            this.addNaklBTN = new System.Windows.Forms.Button();
+            this.NaklCB = new System.Windows.Forms.ComboBox();
+            this.NomNaklTB = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -91,7 +94,6 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).BeginInit();
-            this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
@@ -105,10 +107,9 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
-            this.tabControl1.Location = new System.Drawing.Point(1, 3);
+            this.tabControl1.Location = new System.Drawing.Point(1, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(614, 501);
@@ -345,6 +346,26 @@
             this.tabPage4.Text = "Единица измерения";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // DeleteMeasureBTN
+            // 
+            this.DeleteMeasureBTN.Location = new System.Drawing.Point(220, 58);
+            this.DeleteMeasureBTN.Name = "DeleteMeasureBTN";
+            this.DeleteMeasureBTN.Size = new System.Drawing.Size(75, 23);
+            this.DeleteMeasureBTN.TabIndex = 4;
+            this.DeleteMeasureBTN.Text = "button2";
+            this.DeleteMeasureBTN.UseVisualStyleBackColor = true;
+            this.DeleteMeasureBTN.Click += new System.EventHandler(this.DeleteMeasureBTN_Click);
+            // 
+            // EditMeasureBTN
+            // 
+            this.EditMeasureBTN.Location = new System.Drawing.Point(108, 58);
+            this.EditMeasureBTN.Name = "EditMeasureBTN";
+            this.EditMeasureBTN.Size = new System.Drawing.Size(75, 23);
+            this.EditMeasureBTN.TabIndex = 3;
+            this.EditMeasureBTN.Text = "button1";
+            this.EditMeasureBTN.UseVisualStyleBackColor = true;
+            this.EditMeasureBTN.Click += new System.EventHandler(this.EditMeasureBTN_Click);
+            // 
             // AddMeasure
             // 
             this.AddMeasure.Location = new System.Drawing.Point(7, 58);
@@ -438,18 +459,12 @@
             this.tabPage6.Text = "Накладная";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(606, 475);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Поступление";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.NomNaklTB);
+            this.tabPage8.Controls.Add(this.NaklCB);
+            this.tabPage8.Controls.Add(this.addNaklBTN);
+            this.tabPage8.Controls.Add(this.dateTimePicker1);
             this.tabPage8.Controls.Add(this.MeasureCB);
             this.tabPage8.Controls.Add(this.DeleteItemBTN);
             this.tabPage8.Controls.Add(this.EditItemBTN);
@@ -467,6 +482,13 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Товар";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(400, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 10;
             // 
             // MeasureCB
             // 
@@ -552,22 +574,21 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.listBox1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage9.Size = new System.Drawing.Size(606, 475);
             this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Продажа";
+            this.tabPage9.Text = "Учет_товара";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(7, 6);
+            this.listBox1.Location = new System.Drawing.Point(982, 383);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(491, 95);
+            this.listBox1.Size = new System.Drawing.Size(447, 95);
             this.listBox1.TabIndex = 1;
             // 
             // dataGridView1
@@ -596,31 +617,37 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // EditMeasureBTN
+            // addNaklBTN
             // 
-            this.EditMeasureBTN.Location = new System.Drawing.Point(108, 58);
-            this.EditMeasureBTN.Name = "EditMeasureBTN";
-            this.EditMeasureBTN.Size = new System.Drawing.Size(75, 23);
-            this.EditMeasureBTN.TabIndex = 3;
-            this.EditMeasureBTN.Text = "button1";
-            this.EditMeasureBTN.UseVisualStyleBackColor = true;
-            this.EditMeasureBTN.Click += new System.EventHandler(this.EditMeasureBTN_Click);
+            this.addNaklBTN.Location = new System.Drawing.Point(400, 87);
+            this.addNaklBTN.Name = "addNaklBTN";
+            this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
+            this.addNaklBTN.TabIndex = 11;
+            this.addNaklBTN.Text = "button1";
+            this.addNaklBTN.UseVisualStyleBackColor = true;
+            this.addNaklBTN.Click += new System.EventHandler(this.addNaklBTN_Click);
             // 
-            // DeleteMeasureBTN
+            // NaklCB
             // 
-            this.DeleteMeasureBTN.Location = new System.Drawing.Point(220, 58);
-            this.DeleteMeasureBTN.Name = "DeleteMeasureBTN";
-            this.DeleteMeasureBTN.Size = new System.Drawing.Size(75, 23);
-            this.DeleteMeasureBTN.TabIndex = 4;
-            this.DeleteMeasureBTN.Text = "button2";
-            this.DeleteMeasureBTN.UseVisualStyleBackColor = true;
-            this.DeleteMeasureBTN.Click += new System.EventHandler(this.DeleteMeasureBTN_Click);
+            this.NaklCB.FormattingEnabled = true;
+            this.NaklCB.Location = new System.Drawing.Point(157, 33);
+            this.NaklCB.Name = "NaklCB";
+            this.NaklCB.Size = new System.Drawing.Size(121, 21);
+            this.NaklCB.TabIndex = 12;
+            // 
+            // NomNaklTB
+            // 
+            this.NomNaklTB.Location = new System.Drawing.Point(418, 33);
+            this.NomNaklTB.Name = "NomNaklTB";
+            this.NomNaklTB.Size = new System.Drawing.Size(100, 20);
+            this.NomNaklTB.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 508);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridViewListReturner);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -642,7 +669,6 @@
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).EndInit();
-            this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
@@ -662,7 +688,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TextBox VidTovaraTB;
         private System.Windows.Forms.Button VidTovAddBTN;
@@ -706,6 +731,10 @@
         private System.Windows.Forms.Button AddClientBTN;
         private System.Windows.Forms.Button DeleteMeasureBTN;
         private System.Windows.Forms.Button EditMeasureBTN;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox NaklCB;
+        private System.Windows.Forms.Button addNaklBTN;
+        private System.Windows.Forms.TextBox NomNaklTB;
     }
 }
 

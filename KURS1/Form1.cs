@@ -41,13 +41,13 @@ namespace KURS1
             {
                 case 0: selectedTable = "Паспорт"; dataGridView1.DataSource = works.dataSet("Серия, Номер, Дата_выдачи, Кем_выдан", "Паспорт", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView; break;
                 case 1: selectedTable = "Клиент"; dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона", "Клиент", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
-                case 3: selectedTable = "Единица_измерения"; dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
                 case 2: selectedTable = "Вид_товара"; dataGridView1.DataSource = works.dataSet("Вид_Товара", "Вид_товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Вид_товара", null).Tables[0].DefaultView; break;
+                case 3: selectedTable = "Единица_измерения"; dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
                 case 4: selectedTable = "Магазин"; dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
-                case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
-                case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
-                case 7: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер", "Товар, Вид_Товара, Единица_Измерения", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
-                case 8: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
+                case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной, Номер_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
+                //case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
+                case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер", "Товар, Вид_Товара, Единица_Измерения", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
+                case 7: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
 
             }
         }
@@ -57,6 +57,7 @@ namespace KURS1
             VidTovCB.Items.Clear(); // При добавлении нас.пункта
             ShopChangeCB.Items.Clear();
             MeasureCB.Items.Clear();
+            NaklCB.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 VidTovCB.Items.Add(i);
@@ -68,6 +69,10 @@ namespace KURS1
             foreach (string i in BufferListUpdate(2))
             {
                 ShopChangeCB.Items.Add(i);
+            }
+            foreach (string i in BufferListUpdate(3))
+            {
+                NaklCB.Items.Add(i);
             }
 
         }
@@ -99,7 +104,13 @@ namespace KURS1
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
-
+                case 3: // Заполнение видов товара
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Номер_накладной", "Накладная", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
             }
             return Temp;
         }
@@ -234,6 +245,12 @@ namespace KURS1
             if (tempeID != -1) { listBox1.Items.Add(database.deleteMeasure(tempeID)); tempeID = -1; }
         }
         #endregion
+
+        private void addNaklBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            listBox1.Items.Add(database.addNakl(dateTimePicker1.Value, NomNaklTB.Text));
+        }
     }
 }
     

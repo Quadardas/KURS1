@@ -243,6 +243,19 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string addNakl( DateTime date, string number)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Накладная (Дата_Накладной, Номер_Накладной) VALUES ('{date}', '{number}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
 
     }
 }
