@@ -46,7 +46,7 @@ namespace KURS1
                 case 4: selectedTable = "Магазин"; dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
                 case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной, Номер_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
                 //case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
-                case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер", "Товар, Вид_Товара, Единица_Измерения", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
+                case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер, Накладная.Номер_Накладной as НомерНакладной", "Товар, Вид_Товара, Единица_Измерения, Товары_Накладных, Накладная", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код AND Товар.Код = Товары_Накладных.Код_Товара AND Накладная.Код = Товары_Накладных.Код_Накладной").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
                 case 7: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
 
             }
@@ -196,7 +196,7 @@ namespace KURS1
         int GetAddingItemID()
         {
             Works database = new Works(Credentials);
-            dataGridViewListReturner.DataSource = database.dataSet("Код", "Товар", "WHERE Код = (SELECT MAX(Код) FROM Товар)");
+            dataGridViewListReturner.DataSource = database.dataSet("Код", "Товар", "WHERE Код = (SELECT MAX(Код) FROM Товар)").Tables[0].DefaultView;
             return Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
         }
 
@@ -206,7 +206,7 @@ namespace KURS1
             int li = GetDirCode("Вид_Товара", VidTovCB.SelectedItem.ToString(), 1);
             int li1 = GetDirCode("Единица_измерения", MeasureCB.SelectedItem.ToString(), 1);
             listBox1.Items.Add(database.addItem(NameTovTB.Text, DesTovTB.Text, Convert.ToInt32(AmountTov.Value), Convert.ToInt32(PriceTov.Value),li, li1));
-            listBox1.Items.Add(database.ConnectItemNakl(GetAddingItemID(), GetDirCode("Накладная", NaklCB.SelectedItem.ToString(), 0)));
+            listBox1.Items.Add(database.ConnectItemNakl(GetAddingItemID(), GetDirCode("Накладная", NaklCB.SelectedItem.ToString(), 2)));
 
         }
 

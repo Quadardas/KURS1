@@ -165,7 +165,7 @@ namespace KURS1
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Товары_Накладных (Код_Накладной, Код_Товара) VALUES ({NaklID}, {ItemID})", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO Товары_Накладных (Код_Товара, Код_Накладной) VALUES ({ItemID}, {NaklID})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
