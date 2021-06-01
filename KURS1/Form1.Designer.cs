@@ -66,7 +66,7 @@
             this.ShopAddBTN = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.NaklCB = new System.Windows.Forms.ComboBox();
             this.MeasureCB = new System.Windows.Forms.ComboBox();
             this.DeleteItemBTN = new System.Windows.Forms.Button();
             this.EditItemBTN = new System.Windows.Forms.Button();
@@ -82,18 +82,23 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.addNaklBTN = new System.Windows.Forms.Button();
-            this.NaklCB = new System.Windows.Forms.ComboBox();
             this.NomNaklTB = new System.Windows.Forms.TextBox();
+            this.addNaklBTN = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).BeginInit();
+            this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
@@ -451,6 +456,9 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.NomNaklTB);
+            this.tabPage6.Controls.Add(this.addNaklBTN);
+            this.tabPage6.Controls.Add(this.dateTimePicker1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -461,10 +469,7 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.NomNaklTB);
             this.tabPage8.Controls.Add(this.NaklCB);
-            this.tabPage8.Controls.Add(this.addNaklBTN);
-            this.tabPage8.Controls.Add(this.dateTimePicker1);
             this.tabPage8.Controls.Add(this.MeasureCB);
             this.tabPage8.Controls.Add(this.DeleteItemBTN);
             this.tabPage8.Controls.Add(this.EditItemBTN);
@@ -483,12 +488,13 @@
             this.tabPage8.Text = "Товар";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // NaklCB
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(400, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.NaklCB.FormattingEnabled = true;
+            this.NaklCB.Location = new System.Drawing.Point(157, 33);
+            this.NaklCB.Name = "NaklCB";
+            this.NaklCB.Size = new System.Drawing.Size(121, 21);
+            this.NaklCB.TabIndex = 12;
             // 
             // MeasureCB
             // 
@@ -574,6 +580,9 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.button1);
+            this.tabPage9.Controls.Add(this.textBox1);
+            this.tabPage9.Controls.Add(this.dateTimePicker2);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -617,30 +626,51 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // addNaklBTN
-            // 
-            this.addNaklBTN.Location = new System.Drawing.Point(400, 87);
-            this.addNaklBTN.Name = "addNaklBTN";
-            this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
-            this.addNaklBTN.TabIndex = 11;
-            this.addNaklBTN.Text = "button1";
-            this.addNaklBTN.UseVisualStyleBackColor = true;
-            this.addNaklBTN.Click += new System.EventHandler(this.addNaklBTN_Click);
-            // 
-            // NaklCB
-            // 
-            this.NaklCB.FormattingEnabled = true;
-            this.NaklCB.Location = new System.Drawing.Point(157, 33);
-            this.NaklCB.Name = "NaklCB";
-            this.NaklCB.Size = new System.Drawing.Size(121, 21);
-            this.NaklCB.TabIndex = 12;
-            // 
             // NomNaklTB
             // 
-            this.NomNaklTB.Location = new System.Drawing.Point(418, 33);
+            this.NomNaklTB.Location = new System.Drawing.Point(10, 6);
             this.NomNaklTB.Name = "NomNaklTB";
             this.NomNaklTB.Size = new System.Drawing.Size(100, 20);
-            this.NomNaklTB.TabIndex = 13;
+            this.NomNaklTB.TabIndex = 16;
+            // 
+            // addNaklBTN
+            // 
+            this.addNaklBTN.Location = new System.Drawing.Point(10, 60);
+            this.addNaklBTN.Name = "addNaklBTN";
+            this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
+            this.addNaklBTN.TabIndex = 15;
+            this.addNaklBTN.Text = "button1";
+            this.addNaklBTN.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 34);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(7, 6);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 58);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -665,10 +695,14 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
@@ -731,10 +765,13 @@
         private System.Windows.Forms.Button AddClientBTN;
         private System.Windows.Forms.Button DeleteMeasureBTN;
         private System.Windows.Forms.Button EditMeasureBTN;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox NaklCB;
-        private System.Windows.Forms.Button addNaklBTN;
         private System.Windows.Forms.TextBox NomNaklTB;
+        private System.Windows.Forms.Button addNaklBTN;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 
