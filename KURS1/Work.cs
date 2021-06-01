@@ -230,7 +230,7 @@ namespace KURS1
                 return e.ToString();
             }
         }
-        public string returnMeasureName(int id)
+        public string returnMeasureName(string id)
         {
             try
             {

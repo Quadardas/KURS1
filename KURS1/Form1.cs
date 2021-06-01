@@ -99,6 +99,7 @@ namespace KURS1
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
+
             }
             return Temp;
         }
@@ -112,11 +113,35 @@ namespace KURS1
             tempeID = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
             switch (selectedTable)
             {
-                case "Вид_товара":  VidTovaraTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); break;
-                case "Магазин":  ShopNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); ShopKrNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
-                case "Товар": ShopChangeCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString(); VidTovCB.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString(); NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
-                case "Паспорт": SerPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); NomPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); datePass.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value); KemPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();break;
-                case "Единица_Измерения": MeasureNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); MeasureKrNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
+                case "Вид_товара": VidTovaraTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); break;
+                case "Магазин":
+                    {
+                        ShopNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        ShopKrNazvTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
+                    }
+                case "Товар":
+                    {
+                        dataGridViewListReturner.DataSource = database.dataSet("Наименование", "Единица_Измерения", $"WHERE Код = {dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString()}");
+                        ShopChangeCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString();
+                       // MeasureCB.Text = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        VidTovCB.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                        PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
+                    }
+                case "Паспорт":
+                    {
+                        SerPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        NomPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        datePass.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                        KemPassTB.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); break;
+                    }
+                case "Единица_измерения":
+                    {
+                        MeasureNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        MeasureKrNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
+                    }
             }
         }
         #region вид товара
@@ -191,7 +216,7 @@ namespace KURS1
             }
             return -1;
         }
-
+        #region Единица измерения
         private void AddMeasure_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
@@ -209,6 +234,7 @@ namespace KURS1
             Works database = new Works(Credentials);
             if (tempeID != -1) { listBox1.Items.Add(database.deleteMeasure(tempeID)); tempeID = -1; }
         }
+        #endregion
     }
 }
     
