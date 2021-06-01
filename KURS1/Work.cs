@@ -160,6 +160,21 @@ namespace KURS1
                 return e.ToString();
             }
         }
+
+        public string ConnectItemNakl(int ItemID, int NaklID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Товары_Накладных (Код_Накладной, Код_Товара) VALUES ({NaklID}, {ItemID})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
         public string editItem(string edit, string edit1, int edit2, int edit3, int id)
         {
             try

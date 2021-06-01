@@ -192,12 +192,22 @@ namespace KURS1
         }
         #endregion 
         #region товар
+
+        int GetAddingItemID()
+        {
+            Works database = new Works(Credentials);
+            dataGridViewListReturner.DataSource = database.dataSet("Код", "Товар", "WHERE Код = (SELECT MAX(Код) FROM Товар)");
+            return Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
+        }
+
         private void AddItemBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
             int li = GetDirCode("Вид_Товара", VidTovCB.SelectedItem.ToString(), 1);
             int li1 = GetDirCode("Единица_измерения", MeasureCB.SelectedItem.ToString(), 1);
             listBox1.Items.Add(database.addItem(NameTovTB.Text, DesTovTB.Text, Convert.ToInt32(AmountTov.Value), Convert.ToInt32(PriceTov.Value),li, li1));
+            listBox1.Items.Add(database.ConnectItemNakl(GetAddingItemID(), GetDirCode("Накладная", NaklCB.SelectedItem.ToString(), 0)));
+
         }
 
         private void EditItemBTN_Click(object sender, EventArgs e)
