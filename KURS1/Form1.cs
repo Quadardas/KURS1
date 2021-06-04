@@ -60,6 +60,8 @@ namespace KURS1
             MeasureCB.Items.Clear();
             NaklCB.Items.Clear(); 
             MagazCB.Items.Clear();
+            ClientCB.Items.Clear();
+            PassIDCB.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 VidTovCB.Items.Add(i);
@@ -76,6 +78,14 @@ namespace KURS1
             foreach (string i in BufferListUpdate(3))
             {
                 NaklCB.Items.Add(i);
+            }
+            foreach (string i in BufferListUpdate(4))
+            {
+                ClientCB.Items.Add(i);
+            }
+            foreach (string i in BufferListUpdate(5))
+            {
+                PassIDCB.Items.Add(i);
             }
 
         }
@@ -109,6 +119,20 @@ namespace KURS1
                     break;
                 case 3: // Заполнение видов товара
                     dataGridViewListReturner.DataSource = database.ReturnTable("Номер_накладной", "Накладная", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
+                case 4: // Заполнение видов товара
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Фамилия", "Клиент", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
+                case 5: // Заполнение видов товара
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Номер", "Паспорт", null).Tables[0].DefaultView;
                     for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
                     {
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
@@ -212,6 +236,7 @@ namespace KURS1
             int li1 = GetDirCode("Единица_измерения", MeasureCB.SelectedItem.ToString(), 1);
             listBox1.Items.Add(database.addItem(NameTovTB.Text, DesTovTB.Text, Convert.ToInt32(AmountTov.Value), Convert.ToInt32(PriceTov.Value),li, li1));
             listBox1.Items.Add(database.ConnectItemNakl(GetAddingItemID(), GetDirCode("Накладная", NaklCB.SelectedItem.ToString(), 2)));
+            listBox1.Items.Add(database.addTable(GetDirCode("Магазин", ShopChangeCB.SelectedItem.ToString(), 1), GetDirCode("Товар", NameTovTB.Text, 1)));
 
         }
 
@@ -276,10 +301,30 @@ namespace KURS1
         {
             Works database = new Works(Credentials);
             TovarCB.Items.Clear();
-            int shopID = GetDirCode("Магазин", MagazCB.SelectedItem.ToString(), 0);
-            dataGridViewListReturner.DataSource = database.ReturnTable("Наименование", "Товар, Магазин_и_Товар", $"WHERE ShopID = {shopID} AND Товар.Код = ItemID");
-           // foreach()
+            int shopID = GetDirCode("Магазин", MagazCB.SelectedItem.ToString(), 1);
+            dataGridViewListReturner.DataSource = database.ReturnTable("Наименование", "Товар, Магазин_и_Товар", $"WHERE ShopID = {shopID} AND Товар.Код = ItemID").Tables[0].DefaultView;
+            for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+            {
+                TovarCB.Items.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+            }
+          
         }
+
+        private void TovarCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            int tovarID = GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1);
+            dataGridViewListReturner.DataSource = database.ReturnTable("Количество", "Товар", $"WHERE Код = {tovarID} ").Tables[0].DefaultView;
+            numericUpDown1.Maximum = Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value.ToString());
+        }
+
+        private void AddClientBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            listBox1.Items.Add(database.addClient(NameClientTB.Text, FamClientTB.Text, OtchClientTB.Text, dateClientTP.Value, Convert.ToInt32(PhoneClientTB.Text), GetDirCode("Паспорт",PassIDCB.SelectedItem.ToString(), 2)));
+        }
+
+        
     }
 }
     

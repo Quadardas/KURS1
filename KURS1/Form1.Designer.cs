@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage7;
+            this.ClientCB = new System.Windows.Forms.ComboBox();
+            this.BuyBTN = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.TovarCB = new System.Windows.Forms.ComboBox();
+            this.MagazCB = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.DeletePassBTN = new System.Windows.Forms.Button();
@@ -42,7 +47,7 @@
             this.DeleteClientBTN = new System.Windows.Forms.Button();
             this.EditClientBTN = new System.Windows.Forms.Button();
             this.AddClientBTN = new System.Windows.Forms.Button();
-            this.PassIDTB = new System.Windows.Forms.ComboBox();
+            this.PassIDCB = new System.Windows.Forms.ComboBox();
             this.PhoneClientTB = new System.Windows.Forms.TextBox();
             this.dateClientTP = new System.Windows.Forms.DateTimePicker();
             this.OtchClientTB = new System.Windows.Forms.TextBox();
@@ -82,6 +87,7 @@
             this.VidTovCB = new System.Windows.Forms.ComboBox();
             this.ShopChangeCB = new System.Windows.Forms.ComboBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -90,13 +96,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.MagazCB = new System.Windows.Forms.ComboBox();
-            this.TovarCB = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.BuyBTN = new System.Windows.Forms.Button();
-            this.ClientCB = new System.Windows.Forms.ComboBox();
             tabPage7 = new System.Windows.Forms.TabPage();
+            tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,9 +113,75 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
-            tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tabPage7
+            // 
+            tabPage7.Controls.Add(this.ClientCB);
+            tabPage7.Controls.Add(this.BuyBTN);
+            tabPage7.Controls.Add(this.numericUpDown1);
+            tabPage7.Controls.Add(this.TovarCB);
+            tabPage7.Controls.Add(this.MagazCB);
+            tabPage7.Location = new System.Drawing.Point(4, 22);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            tabPage7.Size = new System.Drawing.Size(606, 475);
+            tabPage7.TabIndex = 9;
+            tabPage7.Text = "Купить товар";
+            tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // ClientCB
+            // 
+            this.ClientCB.FormattingEnabled = true;
+            this.ClientCB.Location = new System.Drawing.Point(156, 6);
+            this.ClientCB.Name = "ClientCB";
+            this.ClientCB.Size = new System.Drawing.Size(121, 21);
+            this.ClientCB.TabIndex = 4;
+            // 
+            // BuyBTN
+            // 
+            this.BuyBTN.Location = new System.Drawing.Point(8, 86);
+            this.BuyBTN.Name = "BuyBTN";
+            this.BuyBTN.Size = new System.Drawing.Size(75, 23);
+            this.BuyBTN.TabIndex = 3;
+            this.BuyBTN.Text = "button2";
+            this.BuyBTN.UseVisualStyleBackColor = true;
+            this.BuyBTN.Click += new System.EventHandler(this.BuyBTN_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(8, 60);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // TovarCB
+            // 
+            this.TovarCB.FormattingEnabled = true;
+            this.TovarCB.Location = new System.Drawing.Point(7, 33);
+            this.TovarCB.Name = "TovarCB";
+            this.TovarCB.Size = new System.Drawing.Size(121, 21);
+            this.TovarCB.TabIndex = 1;
+            this.TovarCB.SelectedIndexChanged += new System.EventHandler(this.TovarCB_SelectedIndexChanged);
+            // 
+            // MagazCB
+            // 
+            this.MagazCB.FormattingEnabled = true;
+            this.MagazCB.Location = new System.Drawing.Point(7, 6);
+            this.MagazCB.Name = "MagazCB";
+            this.MagazCB.Size = new System.Drawing.Size(121, 21);
+            this.MagazCB.TabIndex = 0;
+            this.MagazCB.SelectedIndexChanged += new System.EventHandler(this.MagazCB_SelectedIndexChanged);
             // 
             // tabControl1
             // 
@@ -213,7 +281,7 @@
             this.tabPage2.Controls.Add(this.DeleteClientBTN);
             this.tabPage2.Controls.Add(this.EditClientBTN);
             this.tabPage2.Controls.Add(this.AddClientBTN);
-            this.tabPage2.Controls.Add(this.PassIDTB);
+            this.tabPage2.Controls.Add(this.PassIDCB);
             this.tabPage2.Controls.Add(this.PhoneClientTB);
             this.tabPage2.Controls.Add(this.dateClientTP);
             this.tabPage2.Controls.Add(this.OtchClientTB);
@@ -253,14 +321,15 @@
             this.AddClientBTN.TabIndex = 6;
             this.AddClientBTN.Text = "button1";
             this.AddClientBTN.UseVisualStyleBackColor = true;
+            this.AddClientBTN.Click += new System.EventHandler(this.AddClientBTN_Click);
             // 
-            // PassIDTB
+            // PassIDCB
             // 
-            this.PassIDTB.FormattingEnabled = true;
-            this.PassIDTB.Location = new System.Drawing.Point(8, 137);
-            this.PassIDTB.Name = "PassIDTB";
-            this.PassIDTB.Size = new System.Drawing.Size(100, 21);
-            this.PassIDTB.TabIndex = 5;
+            this.PassIDCB.FormattingEnabled = true;
+            this.PassIDCB.Location = new System.Drawing.Point(8, 137);
+            this.PassIDCB.Name = "PassIDCB";
+            this.PassIDCB.Size = new System.Drawing.Size(100, 21);
+            this.PassIDCB.TabIndex = 5;
             // 
             // PhoneClientTB
             // 
@@ -629,6 +698,16 @@
             this.tabPage9.Text = "Учет_товара";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 92);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -695,83 +774,6 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 92);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            tabPage7.Controls.Add(this.ClientCB);
-            tabPage7.Controls.Add(this.BuyBTN);
-            tabPage7.Controls.Add(this.numericUpDown1);
-            tabPage7.Controls.Add(this.TovarCB);
-            tabPage7.Controls.Add(this.MagazCB);
-            tabPage7.Location = new System.Drawing.Point(4, 22);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            tabPage7.Size = new System.Drawing.Size(606, 475);
-            tabPage7.TabIndex = 9;
-            tabPage7.Text = "Купить товар";
-            tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // MagazCB
-            // 
-            this.MagazCB.FormattingEnabled = true;
-            this.MagazCB.Location = new System.Drawing.Point(7, 6);
-            this.MagazCB.Name = "MagazCB";
-            this.MagazCB.Size = new System.Drawing.Size(121, 21);
-            this.MagazCB.TabIndex = 0;
-            this.MagazCB.SelectedIndexChanged += new System.EventHandler(this.MagazCB_SelectedIndexChanged);
-            // 
-            // TovarCB
-            // 
-            this.TovarCB.FormattingEnabled = true;
-            this.TovarCB.Location = new System.Drawing.Point(7, 33);
-            this.TovarCB.Name = "TovarCB";
-            this.TovarCB.Size = new System.Drawing.Size(121, 21);
-            this.TovarCB.TabIndex = 1;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(8, 60);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // BuyBTN
-            // 
-            this.BuyBTN.Location = new System.Drawing.Point(8, 86);
-            this.BuyBTN.Name = "BuyBTN";
-            this.BuyBTN.Size = new System.Drawing.Size(75, 23);
-            this.BuyBTN.TabIndex = 3;
-            this.BuyBTN.Text = "button2";
-            this.BuyBTN.UseVisualStyleBackColor = true;
-            this.BuyBTN.Click += new System.EventHandler(this.BuyBTN_Click);
-            // 
-            // ClientCB
-            // 
-            this.ClientCB.FormattingEnabled = true;
-            this.ClientCB.Location = new System.Drawing.Point(156, 6);
-            this.ClientCB.Name = "ClientCB";
-            this.ClientCB.Size = new System.Drawing.Size(121, 21);
-            this.ClientCB.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,6 +786,8 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -806,8 +810,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
-            tabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -856,7 +858,7 @@
         private System.Windows.Forms.TextBox SerPassTB;
         private System.Windows.Forms.Button DeletePassBTN;
         private System.Windows.Forms.Button EditPassBTN;
-        private System.Windows.Forms.ComboBox PassIDTB;
+        private System.Windows.Forms.ComboBox PassIDCB;
         private System.Windows.Forms.TextBox PhoneClientTB;
         private System.Windows.Forms.DateTimePicker dateClientTP;
         private System.Windows.Forms.TextBox OtchClientTB;

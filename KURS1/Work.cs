@@ -26,6 +26,19 @@ namespace KURS1
             sqlData.Fill(Temp);
             return Temp;
         }
+        public string addClient(string name, string name1, string name2, DateTime date, int nom, int passID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Клиент (Фамилия, Имя, ОТчество, Дата_рождения, Номер_телефона, PassID, Размер_скидки) VALUES ('{name}', '{name1}', '{name2}', '{date}', '{nom}', {passID}, 0)", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
         public string addPass(string ser, string nom, DateTime date, string kem)
         {
             try
@@ -271,6 +284,20 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string addTable(int a, int b)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Магазин_и_Товар (ShopID, ItemID) VALUES ({a}, {b})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
 
     }
 }
