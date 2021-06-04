@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TabPage tabPage7;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.DeletePassBTN = new System.Windows.Forms.Button();
@@ -65,6 +66,9 @@
             this.ShopDeleteBTN = new System.Windows.Forms.Button();
             this.ShopAddBTN = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.NomNaklTB = new System.Windows.Forms.TextBox();
+            this.addNaklBTN = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.NaklCB = new System.Windows.Forms.ComboBox();
             this.MeasureCB = new System.Windows.Forms.ComboBox();
@@ -78,16 +82,21 @@
             this.VidTovCB = new System.Windows.Forms.ComboBox();
             this.ShopChangeCB = new System.Windows.Forms.ComboBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.NomNaklTB = new System.Windows.Forms.TextBox();
-            this.addNaklBTN = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.MagazCB = new System.Windows.Forms.ComboBox();
+            this.TovarCB = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.BuyBTN = new System.Windows.Forms.Button();
+            this.ClientCB = new System.Windows.Forms.ComboBox();
+            tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -102,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
+            tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,6 +125,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(1, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -467,6 +479,30 @@
             this.tabPage6.Text = "Накладная";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // NomNaklTB
+            // 
+            this.NomNaklTB.Location = new System.Drawing.Point(10, 6);
+            this.NomNaklTB.Name = "NomNaklTB";
+            this.NomNaklTB.Size = new System.Drawing.Size(100, 20);
+            this.NomNaklTB.TabIndex = 16;
+            // 
+            // addNaklBTN
+            // 
+            this.addNaklBTN.Location = new System.Drawing.Point(10, 60);
+            this.addNaklBTN.Name = "addNaklBTN";
+            this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
+            this.addNaklBTN.TabIndex = 15;
+            this.addNaklBTN.Text = "button1";
+            this.addNaklBTN.UseVisualStyleBackColor = true;
+            this.addNaklBTN.Click += new System.EventHandler(this.addNaklBTN_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 34);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.NaklCB);
@@ -580,6 +616,8 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.checkBox1);
+            this.tabPage9.Controls.Add(this.comboBox1);
             this.tabPage9.Controls.Add(this.button1);
             this.tabPage9.Controls.Add(this.textBox1);
             this.tabPage9.Controls.Add(this.dateTimePicker2);
@@ -590,6 +628,37 @@
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Учет_товара";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(3, 449);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 0;
             // 
             // listBox1
             // 
@@ -626,51 +695,82 @@
             this.dataGridViewListReturner.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewListReturner.TabIndex = 3;
             // 
-            // NomNaklTB
+            // checkBox1
             // 
-            this.NomNaklTB.Location = new System.Drawing.Point(10, 6);
-            this.NomNaklTB.Name = "NomNaklTB";
-            this.NomNaklTB.Size = new System.Drawing.Size(100, 20);
-            this.NomNaklTB.TabIndex = 16;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 92);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // addNaklBTN
+            // tabPage7
             // 
-            this.addNaklBTN.Location = new System.Drawing.Point(10, 60);
-            this.addNaklBTN.Name = "addNaklBTN";
-            this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
-            this.addNaklBTN.TabIndex = 15;
-            this.addNaklBTN.Text = "button1";
-            this.addNaklBTN.UseVisualStyleBackColor = true;
+            tabPage7.Controls.Add(this.ClientCB);
+            tabPage7.Controls.Add(this.BuyBTN);
+            tabPage7.Controls.Add(this.numericUpDown1);
+            tabPage7.Controls.Add(this.TovarCB);
+            tabPage7.Controls.Add(this.MagazCB);
+            tabPage7.Location = new System.Drawing.Point(4, 22);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            tabPage7.Size = new System.Drawing.Size(606, 475);
+            tabPage7.TabIndex = 9;
+            tabPage7.Text = "Купить товар";
+            tabPage7.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // MagazCB
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 34);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.MagazCB.FormattingEnabled = true;
+            this.MagazCB.Location = new System.Drawing.Point(7, 6);
+            this.MagazCB.Name = "MagazCB";
+            this.MagazCB.Size = new System.Drawing.Size(121, 21);
+            this.MagazCB.TabIndex = 0;
+            this.MagazCB.SelectedIndexChanged += new System.EventHandler(this.MagazCB_SelectedIndexChanged);
             // 
-            // dateTimePicker2
+            // TovarCB
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(7, 6);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 0;
+            this.TovarCB.FormattingEnabled = true;
+            this.TovarCB.Location = new System.Drawing.Point(7, 33);
+            this.TovarCB.Name = "TovarCB";
+            this.TovarCB.Size = new System.Drawing.Size(121, 21);
+            this.TovarCB.TabIndex = 1;
             // 
-            // textBox1
+            // numericUpDown1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.numericUpDown1.Location = new System.Drawing.Point(8, 60);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // button1
+            // BuyBTN
             // 
-            this.button1.Location = new System.Drawing.Point(7, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BuyBTN.Location = new System.Drawing.Point(8, 86);
+            this.BuyBTN.Name = "BuyBTN";
+            this.BuyBTN.Size = new System.Drawing.Size(75, 23);
+            this.BuyBTN.TabIndex = 3;
+            this.BuyBTN.Text = "button2";
+            this.BuyBTN.UseVisualStyleBackColor = true;
+            this.BuyBTN.Click += new System.EventHandler(this.BuyBTN_Click);
+            // 
+            // ClientCB
+            // 
+            this.ClientCB.FormattingEnabled = true;
+            this.ClientCB.Location = new System.Drawing.Point(156, 6);
+            this.ClientCB.Name = "ClientCB";
+            this.ClientCB.Size = new System.Drawing.Size(121, 21);
+            this.ClientCB.TabIndex = 4;
             // 
             // Form1
             // 
@@ -706,6 +806,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
+            tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -772,6 +874,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox ClientCB;
+        private System.Windows.Forms.Button BuyBTN;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox TovarCB;
+        private System.Windows.Forms.ComboBox MagazCB;
     }
 }
 

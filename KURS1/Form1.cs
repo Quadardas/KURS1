@@ -9,6 +9,7 @@ namespace KURS1
         public Form1()
         {
             InitializeComponent();
+            ComboUpdates();
         }
 
         string Credentials =
@@ -40,7 +41,7 @@ namespace KURS1
             switch(tabControl1.SelectedIndex)
             {
                 case 0: selectedTable = "Паспорт"; dataGridView1.DataSource = works.dataSet("Серия, Номер, Дата_выдачи, Кем_выдан", "Паспорт", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView; break;
-                case 1: selectedTable = "Клиент"; dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона", "Клиент", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
+                case 1: selectedTable = "Клиент"; dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, Карта.Размер_скидки as Размер_Скидки", "Клиент, Карта", "WHERE Клиент.Код = Карта.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
                 case 2: selectedTable = "Вид_товара"; dataGridView1.DataSource = works.dataSet("Вид_Товара", "Вид_товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Вид_товара", null).Tables[0].DefaultView; break;
                 case 3: selectedTable = "Единица_измерения"; dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
                 case 4: selectedTable = "Магазин"; dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
@@ -57,7 +58,8 @@ namespace KURS1
             VidTovCB.Items.Clear(); // При добавлении нас.пункта
             ShopChangeCB.Items.Clear();
             MeasureCB.Items.Clear();
-            NaklCB.Items.Clear();
+            NaklCB.Items.Clear(); 
+            MagazCB.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 VidTovCB.Items.Add(i);
@@ -69,6 +71,7 @@ namespace KURS1
             foreach (string i in BufferListUpdate(2))
             {
                 ShopChangeCB.Items.Add(i);
+                MagazCB.Items.Add(i);
             }
             foreach (string i in BufferListUpdate(3))
             {
@@ -111,6 +114,7 @@ namespace KURS1
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
+
             }
             return Temp;
         }
@@ -138,6 +142,7 @@ namespace KURS1
                         NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                         AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                        NaklCB.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
                         PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
                     }
                 case "Паспорт":
@@ -260,6 +265,20 @@ namespace KURS1
         {
             Works database = new Works(Credentials);
             listBox1.Items.Add(database.addNakl(dateTimePicker1.Value, NomNaklTB.Text));
+        }
+
+        private void BuyBTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MagazCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            TovarCB.Items.Clear();
+            int shopID = GetDirCode("Магазин", MagazCB.SelectedItem.ToString(), 0);
+            dataGridViewListReturner.DataSource = database.ReturnTable("Наименование", "Товар, Магазин_и_Товар", $"WHERE ShopID = {shopID} AND Товар.Код = ItemID");
+           // foreach()
         }
     }
 }
