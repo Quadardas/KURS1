@@ -40,15 +40,15 @@ namespace KURS1
             Works works = new Works(Credentials);
             switch(tabControl1.SelectedIndex)
             {
-                case 0: selectedTable = "Паспорт"; dataGridView1.DataSource = works.dataSet("Серия, Номер, Дата_выдачи, Кем_выдан", "Паспорт", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView; break;
-                case 1: selectedTable = "Клиент"; dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, Карта.Размер_скидки as Размер_Скидки", "Клиент, Карта", "WHERE Клиент.Код = Карта.Код").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
-                case 2: selectedTable = "Вид_товара"; dataGridView1.DataSource = works.dataSet("Вид_Товара", "Вид_товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Вид_товара", null).Tables[0].DefaultView; break;
-                case 3: selectedTable = "Единица_измерения"; dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
-                case 4: selectedTable = "Магазин"; dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
-                case 5: selectedTable = "Накладная"; dataGridView1.DataSource = works.dataSet("Дата_Накладной, Номер_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
+                case 0: selectedTable = "Паспорт"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Серия, Номер, Дата_выдачи, Кем_выдан", "Паспорт", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView; break;
+                case 1: selectedTable = "Клиент"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, Размер_Скидки", "Клиент", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
+                case 2: selectedTable = "Вид_товара"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Вид_Товара", "Вид_товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Вид_товара", null).Tables[0].DefaultView; break;
+                case 3: selectedTable = "Единица_измерения"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
+                case 4: selectedTable = "Магазин"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
+                case 5: selectedTable = "Накладная"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Дата_Накладной, Номер_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
                 //case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
                 case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер, Накладная.Номер_Накладной as НомерНакладной", "Товар, Вид_Товара, Единица_Измерения, Товары_Накладных, Накладная", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код AND Товар.Код = Товары_Накладных.Код_Товара AND Накладная.Код = Товары_Накладных.Код_Накладной").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
-                case 7: selectedTable = "Учет_Товара"; dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
+                case 7: selectedTable = "Учет_Товара"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
 
             }
         }
@@ -181,6 +181,22 @@ namespace KURS1
                         MeasureNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                         MeasureKrNameTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); break;
                     }
+                case "Накладная":
+                    {
+                        NomNaklTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+                        break;
+                    }
+                case "Клиент":
+                    {
+                        NameClientTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        FamClientTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        OtchClientTB.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        dateClientTP.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                        PhoneClientTB.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        PassIDCB.SelectedItem = dataGridViewListReturner.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        break;
+                    }
             }
         }
         #region вид товара
@@ -285,16 +301,30 @@ namespace KURS1
             if (tempeID != -1) { listBox1.Items.Add(database.deleteMeasure(tempeID)); tempeID = -1; }
         }
         #endregion
-
+        #region Накладная
         private void addNaklBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
             listBox1.Items.Add(database.addNakl(dateTimePicker1.Value, NomNaklTB.Text));
         }
+        private void EditNaklBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            if (tempeID != -1) { listBox1.Items.Add(database.editNakl(NomNaklTB.Text.ToString(), dateTimePicker1.Value, tempeID)); tempeID = -1; }
+        }
 
+        private void DeleteNaklBTN_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            if (tempeID != -1) { listBox1.Items.Add(database.deleteNakl(tempeID)); tempeID = -1; }
+        }
+        #endregion
         private void BuyBTN_Click(object sender, EventArgs e)
         {
-
+           
+            Works database = new Works(Credentials);
+            listBox1.Items.Add(database.buyItem(Convert.ToInt32(numericUpDown1.Value), GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1)));
+            //listBox1.Items.Add(database.Sum()
         }
 
         private void MagazCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -321,10 +351,10 @@ namespace KURS1
         private void AddClientBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
-            listBox1.Items.Add(database.addClient(NameClientTB.Text, FamClientTB.Text, OtchClientTB.Text, dateClientTP.Value, Convert.ToInt32(PhoneClientTB.Text), GetDirCode("Паспорт",PassIDCB.SelectedItem.ToString(), 2)));
+            listBox1.Items.Add(database.addClient(NameClientTB.Text, FamClientTB.Text, OtchClientTB.Text, dateClientTP.Value, Convert.ToInt64(PhoneClientTB.Text), GetDirCode("Паспорт",PassIDCB.SelectedItem.ToString(), 2)));
         }
 
-        
+       
     }
 }
     

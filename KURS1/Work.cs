@@ -26,11 +26,11 @@ namespace KURS1
             sqlData.Fill(Temp);
             return Temp;
         }
-        public string addClient(string name, string name1, string name2, DateTime date, int nom, int passID)
+        public string addClient(string name, string name1, string name2, DateTime date, long nom, int passID)
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Клиент (Фамилия, Имя, ОТчество, Дата_рождения, Номер_телефона, PassID, Размер_скидки) VALUES ('{name}', '{name1}', '{name2}', '{date}', '{nom}', {passID}, 0)", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO Клиент (Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, PassID, Размер_Скидки) VALUES ('{name}', '{name1}', '{name2}', '{date}', '{nom}', {passID}, 0)", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -284,6 +284,31 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string editNakl(string edit, DateTime edit1, int id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE Накладная SET Номер_Накладной = '{edit}', Дата_Накладной = '{edit1}', WHERE Код = {id};", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+        public string deleteNakl(int ID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM Накладная WHERE Код = {ID}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
         public string addTable(int a, int b)
         {
             try
@@ -298,6 +323,32 @@ namespace KURS1
             }
         }
 
+        public string buyItem(int edit, int id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE Товар SET Количество = Товар.Количество - {edit} WHERE Код = {id};", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
 
+                return e.ToString();
+            }
+        }
+
+        public string Sum(int sum, string client, DateTime date, int kol, string tov)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Учет_Товара (Дата_продажи, Количество, Товар, Сумма_продажи, Покупатель) VALUES ('{date}, {kol}, '{tov}', '{sum}, '{client}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
     }
 }
