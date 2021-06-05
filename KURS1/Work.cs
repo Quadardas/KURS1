@@ -30,7 +30,7 @@ namespace KURS1
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Клиент (Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, PassID, Размер_Скидки) VALUES ('{name}', '{name1}', '{name2}', '{date}', '{nom}', {passID}, 0)", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO Клиент (Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, PassID) VALUES ('{name}', '{name1}', '{name2}', '{date}', '{nom}', {passID})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -337,11 +337,11 @@ namespace KURS1
             }
         }
 
-        public string Sum(int sum, string client, DateTime date, int kol, string tov)
+        public string Sum(int sum, DateTime date, int kol, int tov)
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Учет_Товара (Дата_продажи, Количество, Товар, Сумма_продажи, Покупатель) VALUES ('{date}, {kol}, '{tov}', '{sum}, '{client}')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO Учет_Товара (Дата_продажи, Количество, ItemID, Сумма_продажи) VALUES ('{date}', {kol}, {tov}, {sum})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)

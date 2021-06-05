@@ -126,6 +126,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             tabPage7 = new System.Windows.Forms.TabPage();
             tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -147,6 +148,7 @@
             // 
             // tabPage7
             // 
+            tabPage7.Controls.Add(this.dateTimePicker3);
             tabPage7.Controls.Add(this.label29);
             tabPage7.Controls.Add(this.label28);
             tabPage7.Controls.Add(this.label27);
@@ -1115,6 +1117,13 @@
             this.label29.TabIndex = 8;
             this.label29.Text = "Количество";
             // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(315, 224);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1255,6 +1264,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
     }
 }
 
