@@ -328,6 +328,7 @@ namespace KURS1
             int jija = GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1);
             listBox1.Items.Add(database.buyItem(Convert.ToInt32(numericUpDown1.Value), GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1)));
             listBox1.Items.Add(database.Sum(Summa, dateTimePicker3.Value, Convert.ToInt32(numericUpDown1.Value), jija));
+            listBox1.Items.Add(database.ClientsBuy(Summa, dateTimePicker3.Value, GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1), GetDirCode("Клиент", ClientCB.SelectedItem.ToString(), 1)));
         }
 
         private void MagazCB_SelectedIndexChanged(object sender, EventArgs e)

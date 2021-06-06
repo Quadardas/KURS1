@@ -350,5 +350,20 @@ namespace KURS1
                 return e.ToString();
             }
         }
+        public string ClientsBuy(int sum, DateTime date, int tovID, int clientID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Покупки_и_Клиенты (Дата_Покупки, Сумма, ItemID, ClientID) VALUES ('{date}', {sum}, {tovID}, {clientID})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
+
     }
 }
