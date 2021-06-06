@@ -41,7 +41,7 @@ namespace KURS1
             switch(tabControl1.SelectedIndex)
             {
                 case 0: selectedTable = "Паспорт"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Серия, Номер, Дата_выдачи, Кем_выдан", "Паспорт", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Паспорт", null).Tables[0].DefaultView; break;
-                case 1: selectedTable = "Клиент"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона", "Клиент", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
+                case 1: selectedTable = "Клиент"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Дата_рождения, Номер_телефона, Общая_сумма", "Клиент", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Клиент", null).Tables[0].DefaultView; break;
                 case 2: selectedTable = "Вид_товара"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Вид_Товара", "Вид_товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Вид_товара", null).Tables[0].DefaultView; break;
                 case 3: selectedTable = "Единица_измерения"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
                 case 4: selectedTable = "Магазин"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
@@ -165,7 +165,7 @@ namespace KURS1
                         VidTovCB.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                         NameTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DesTovTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                        AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                        AmountTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
                         NaklCB.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
                         PriceTov.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value); break;
                     }
@@ -322,9 +322,13 @@ namespace KURS1
         private void BuyBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
-
+            dataGridViewListReturner.DataSource = database.ReturnTable("Размер_скидки", "Карта", $"WHERE Код = {GetDirCode("Клиент", ClientCB.SelectedItem.ToString(), 1)}").Tables[0].DefaultView;
+            int disc = Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
             dataGridViewListReturner.DataSource = database.ReturnTable("Цена", "Товар", $"WHERE {GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1)} = Код").Tables[0].DefaultView;
-            int Summa = Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value) * Convert.ToInt32(numericUpDown1.Value);
+            int one = Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
+            int two = Convert.ToInt32(numericUpDown1.Value);
+            double three = (100 - disc) * 0.01;
+            int Summa = Convert.ToInt32(one * two * three);
             int jija = GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1);
             listBox1.Items.Add(database.buyItem(Convert.ToInt32(numericUpDown1.Value), GetDirCode("Товар", TovarCB.SelectedItem.ToString(), 1)));
             listBox1.Items.Add(database.Sum(Summa, dateTimePicker3.Value, Convert.ToInt32(numericUpDown1.Value), jija));
