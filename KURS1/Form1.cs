@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 namespace KURS1
 {
     public partial class Form1 : Form
@@ -36,7 +37,8 @@ namespace KURS1
         }
         #endregion
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {  
+        {
+            CheckDisc();
             Works works = new Works(Credentials);
             switch(tabControl1.SelectedIndex)
             {
@@ -49,18 +51,22 @@ namespace KURS1
                 case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер, Накладная.Номер_Накладной as НомерНакладной", "Товар, Вид_Товара, Единица_Измерения, Товары_Накладных, Накладная", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код AND Товар.Код = Товары_Накладных.Код_Товара AND Накладная.Код = Товары_Накладных.Код_Накладной").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
                 case 7: selectedTable = "Учет_Товара"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество, Сумма_Продажи", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
                 case 8: selectedTable = "Купить товар"; dataGridView1.DataSource = works.dataSet("Наименование, Цена", "Товар", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
+                case 9: selectedTable = "Клиенты имеющие 10%"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Фамилия, Имя, Отчество, Номер_телефона", "Клиент, Карта", "WHERE Клиент.Код = Карта.Код AND Карта.Размер_скидки = 10").Tables[0].DefaultView; break;
+                case 10: selectedTable = "Динамика"; dataGridViewListReturner1.DataSource = works.ReturnTable(
+                "Товар.Наименование, Товар.Количество, Накладная.Дата_Накладной", "Товар, Накладная, Товары_Накладных", "WHERE Товар.Код = Товары_Накладных.Код_Товара AND Накладная.Код = Товары_Накладных.Код_Накладной AND ").Tables[0].DefaultView; ComboUpdates(); break;
             }
         }
 
         void ComboUpdates()
         {
-            VidTovCB.Items.Clear(); // При добавлении нас.пункта
+            VidTovCB.Items.Clear(); // 
             ShopChangeCB.Items.Clear();
             MeasureCB.Items.Clear();
             NaklCB.Items.Clear(); 
             MagazCB.Items.Clear();
             ClientCB.Items.Clear();
             PassIDCB.Items.Clear();
+            comboBox2.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 VidTovCB.Items.Add(i);
@@ -85,6 +91,11 @@ namespace KURS1
             foreach (string i in BufferListUpdate(5))
             {
                 PassIDCB.Items.Add(i);
+            }
+
+            for(int i = 0; i < dataGridViewListReturner1.Rows.Count - 1; i++)
+            {
+                comboBox2.Items.Add(dataGridViewListReturner1.Rows[i].Cells[0].Value.ToString());
             }
 
         }
@@ -369,28 +380,84 @@ namespace KURS1
         void CheckDisc()
         {
             Works database = new Works(Credentials);
-            dataGridViewListReturner.DataSource = database.ReturnTable(
+            dataGridViewListReturner1.DataSource = database.ReturnTable(
                 "Клиент.Код, Клиент.Общая_сумма", 
                 "Клиент", 
-                null);
-            for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                null).Tables[0].DefaultView;
+            for(int i = 0; i < dataGridViewListReturner1.Rows.Count - 1; i++)
             {
-                if(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 3000)
+                if(Convert.ToInt32(dataGridViewListReturner1.Rows[i].Cells[1].Value) >= 3000)
                 {
                     database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 3);
                 }
-                if (Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 10000)
+                if (Convert.ToInt32(dataGridViewListReturner1.Rows[i].Cells[1].Value) >= 10000)
                 {
-                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 5);
+                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner1.Rows[i].Cells[0].Value), 5);
                 }
-                if (Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 20000)
+                if (Convert.ToInt32(dataGridViewListReturner1.Rows[i].Cells[1].Value) >= 20000)
                 {
-                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 10);
+                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner1.Rows[i].Cells[0].Value), 10);
                 }
             }
         }
-       
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+        string[] Months = new string[12]
+        {
+                "Январь",
+                "Февраль",
+                "Март",
+                "Апрель",
+                "Май",
+                "Июнь",
+                "Июль",
+                "Август",
+                "Сентябрь",
+                "Октябрь",
+                "Ноябрь",
+                "Декабрь"
+        };
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            chart1.Series.Clear(); chart2.Series.Clear();
+            chart1.Series.Add(new Series($"{comboBox2.SelectedItem}")
+            {
+                ChartType = SeriesChartType.Column
+            });
+            
+            int TempCount = 0;
+            double CalcYear;
+            for (int i = 0; i < Math.Abs(dateTimePicker4.Value.Year - dateTimePicker5.Value.Year) * 12; i++)
+            {
+                CalcYear = dateTimePicker4.Value.Year + Math.Round((double)(i / 12));
+                for (int j = 0; j < dataGridViewListReturner1.Rows.Count - 1; j++)
+                {
+                    if (CalcYear == Convert.ToDateTime(dataGridViewListReturner1.Rows[j].Cells[0].Value).Year && Convert.ToDateTime(dataGridViewListReturner1.Rows[j].Cells[0].Value).Month == ((i % 12) + 1))
+                    {
+                        TempCount++;
+                    }
+                }
+                chart2.Series[$"{comboBox2.SelectedItem}"].Points.AddXY($"{Months[i % 12]} {CalcYear}", TempCount);
+                TempCount = 0;
+            }
+            
+        }
+
+        private void BirthDay_Click(object sender, EventArgs e)
+        {
+            Works database = new Works(Credentials);
+            dataGridView1.DataSource = database.birthDay(dateTimePicker6.Value).Tables[0].DefaultView;
+
+        }
     }
+    
 }
+
     
 

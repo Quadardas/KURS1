@@ -391,6 +391,27 @@ namespace KURS1
             }
         }
 
+       /* public DataSet birthDay(DateTime date)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"SELECT Фамилия, Имя, Отчество, Номер_Телефона FROM Клиент WHERE DATEDIFF(day, Дата_Рождения, {date}) <= 10", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }*/
+        public DataSet birthDay(DateTime date)
+        {
+            DataSet Temp = new DataSet();
+            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT Фамилия, Имя, Отчество, Номер_Телефона FROM Клиент WHERE DATEDIFF(day, Дата_Рождения, '{date}') <= 10", connection);
+            sqlData.Fill(Temp);
+            return Temp;
+        }
+
 
     }
 }
