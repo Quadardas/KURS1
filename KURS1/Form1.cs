@@ -366,10 +366,28 @@ namespace KURS1
             
         }
 
-        private void CheckDisc()
+        void CheckDisc()
         {
-            
-
+            Works database = new Works(Credentials);
+            dataGridViewListReturner.DataSource = database.ReturnTable(
+                "Клиент.Код, Клиент.Общая_сумма", 
+                "Клиент", 
+                null);
+            for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+            {
+                if(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 3000)
+                {
+                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 3);
+                }
+                if (Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 10000)
+                {
+                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 5);
+                }
+                if (Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[1].Value) >= 20000)
+                {
+                    database.InsertPercentage(Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value), 10);
+                }
+            }
         }
        
     }

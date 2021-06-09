@@ -377,6 +377,20 @@ namespace KURS1
             }
         }
 
+        public string InsertPercentage(int ClientCode, int Percentage)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE Карта SET Размер_скидки = {Percentage} WHERE Код = {ClientCode}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+        }
+
 
     }
 }
