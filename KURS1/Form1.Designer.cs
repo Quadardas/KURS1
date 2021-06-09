@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage7;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -125,26 +125,22 @@
             this.VidTovCB = new System.Windows.Forms.ComboBox();
             this.ShopChangeCB = new System.Windows.Forms.ComboBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.BirthDay = new System.Windows.Forms.Button();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner1 = new System.Windows.Forms.DataGridView();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.BirthDay = new System.Windows.Forms.Button();
             tabPage7 = new System.Windows.Forms.TabPage();
             tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -158,15 +154,14 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).BeginInit();
-            this.tabPage9.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner1)).BeginInit();
-            this.tabPage11.SuspendLayout();
-            this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage7
@@ -813,7 +808,7 @@
             this.DeleteNaklBTN.Name = "DeleteNaklBTN";
             this.DeleteNaklBTN.Size = new System.Drawing.Size(75, 23);
             this.DeleteNaklBTN.TabIndex = 20;
-            this.DeleteNaklBTN.Text = "button3";
+            this.DeleteNaklBTN.Text = "Удалить";
             this.DeleteNaklBTN.UseVisualStyleBackColor = true;
             this.DeleteNaklBTN.Click += new System.EventHandler(this.DeleteNaklBTN_Click);
             // 
@@ -823,7 +818,7 @@
             this.EditNaklBTN.Name = "EditNaklBTN";
             this.EditNaklBTN.Size = new System.Drawing.Size(75, 23);
             this.EditNaklBTN.TabIndex = 19;
-            this.EditNaklBTN.Text = "button2";
+            this.EditNaklBTN.Text = "Изменить";
             this.EditNaklBTN.UseVisualStyleBackColor = true;
             this.EditNaklBTN.Click += new System.EventHandler(this.EditNaklBTN_Click);
             // 
@@ -858,7 +853,7 @@
             this.addNaklBTN.Name = "addNaklBTN";
             this.addNaklBTN.Size = new System.Drawing.Size(75, 23);
             this.addNaklBTN.TabIndex = 15;
-            this.addNaklBTN.Text = "button1";
+            this.addNaklBTN.Text = "Добавить";
             this.addNaklBTN.UseVisualStyleBackColor = true;
             this.addNaklBTN.Click += new System.EventHandler(this.addNaklBTN_Click);
             // 
@@ -1072,10 +1067,6 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.comboBox1);
-            this.tabPage9.Controls.Add(this.button1);
-            this.tabPage9.Controls.Add(this.textBox1);
-            this.tabPage9.Controls.Add(this.dateTimePicker2);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -1084,36 +1075,125 @@
             this.tabPage9.Text = "Учет_товара";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // tabPage10
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(743, 475);
+            this.tabPage10.TabIndex = 10;
+            this.tabPage10.Text = "Клиенты имеющие 10%";
+            this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // tabPage11
             // 
-            this.button1.Location = new System.Drawing.Point(7, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabPage11.Controls.Add(this.dateTimePicker5);
+            this.tabPage11.Controls.Add(this.dateTimePicker4);
+            this.tabPage11.Controls.Add(this.button2);
+            this.tabPage11.Controls.Add(this.chart2);
+            this.tabPage11.Controls.Add(this.chart1);
+            this.tabPage11.Controls.Add(this.comboBox2);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(743, 475);
+            this.tabPage11.TabIndex = 11;
+            this.tabPage11.Text = "Динамика";
+            this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // dateTimePicker5
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.dateTimePicker5.Location = new System.Drawing.Point(395, 6);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker5.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // dateTimePicker4
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(148, 7);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 0;
+            this.dateTimePicker4.Location = new System.Drawing.Point(171, 6);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker4.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(7, 33);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // chart2
+            // 
+            chartArea7.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart2.Legends.Add(legend7);
+            this.chart2.Location = new System.Drawing.Point(3, 75);
+            this.chart2.Name = "chart2";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart2.Series.Add(series7);
+            this.chart2.Size = new System.Drawing.Size(734, 208);
+            this.chart2.TabIndex = 2;
+            this.chart2.Text = "chart2";
+            // 
+            // chart1
+            // 
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
+            this.chart1.Location = new System.Drawing.Point(3, 279);
+            this.chart1.Name = "chart1";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart1.Series.Add(series8);
+            this.chart1.Size = new System.Drawing.Size(734, 190);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(7, 6);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.Controls.Add(this.BirthDay);
+            this.tabPage12.Controls.Add(this.dateTimePicker6);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(743, 475);
+            this.tabPage12.TabIndex = 12;
+            this.tabPage12.Text = "tabPage12";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // BirthDay
+            // 
+            this.BirthDay.Location = new System.Drawing.Point(7, 33);
+            this.BirthDay.Name = "BirthDay";
+            this.BirthDay.Size = new System.Drawing.Size(75, 23);
+            this.BirthDay.TabIndex = 1;
+            this.BirthDay.Text = "button3";
+            this.BirthDay.UseVisualStyleBackColor = true;
+            this.BirthDay.Click += new System.EventHandler(this.BirthDay_Click);
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(7, 7);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker6.TabIndex = 0;
             // 
             // listBox1
             // 
@@ -1158,131 +1238,11 @@
             this.dataGridViewListReturner1.Size = new System.Drawing.Size(241, 150);
             this.dataGridViewListReturner1.TabIndex = 4;
             // 
-            // tabPage10
-            // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(743, 475);
-            this.tabPage10.TabIndex = 10;
-            this.tabPage10.Text = "Клиенты имеющие 10%";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Controls.Add(this.dateTimePicker5);
-            this.tabPage11.Controls.Add(this.dateTimePicker4);
-            this.tabPage11.Controls.Add(this.button2);
-            this.tabPage11.Controls.Add(this.chart2);
-            this.tabPage11.Controls.Add(this.chart1);
-            this.tabPage11.Controls.Add(this.comboBox2);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(743, 475);
-            this.tabPage11.TabIndex = 11;
-            this.tabPage11.Text = "Динамика";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Controls.Add(this.BirthDay);
-            this.tabPage12.Controls.Add(this.dateTimePicker6);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(743, 475);
-            this.tabPage12.TabIndex = 12;
-            this.tabPage12.Text = "tabPage12";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 0;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // chart1
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(3, 169);
-            this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(348, 300);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            // 
-            // chart2
-            // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
-            this.chart2.Location = new System.Drawing.Point(382, 169);
-            this.chart2.Name = "chart2";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart2.Series.Add(series6);
-            this.chart2.Size = new System.Drawing.Size(300, 300);
-            this.chart2.TabIndex = 2;
-            this.chart2.Text = "chart2";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(7, 33);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(171, 6);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker4.TabIndex = 4;
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Location = new System.Drawing.Point(395, 6);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker5.TabIndex = 5;
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(7, 7);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker6.TabIndex = 0;
-            // 
-            // BirthDay
-            // 
-            this.BirthDay.Location = new System.Drawing.Point(7, 33);
-            this.BirthDay.Name = "BirthDay";
-            this.BirthDay.Size = new System.Drawing.Size(75, 23);
-            this.BirthDay.TabIndex = 1;
-            this.BirthDay.Text = "button3";
-            this.BirthDay.UseVisualStyleBackColor = true;
-            this.BirthDay.Click += new System.EventHandler(this.BirthDay_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 504);
+            this.ClientSize = new System.Drawing.Size(1651, 504);
             this.Controls.Add(this.dataGridViewListReturner1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridViewListReturner);
@@ -1311,16 +1271,14 @@
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTov)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountTov)).EndInit();
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tabPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner1)).EndInit();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1384,10 +1342,6 @@
         private System.Windows.Forms.TextBox NomNaklTB;
         private System.Windows.Forms.Button addNaklBTN;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox ClientCB;
         private System.Windows.Forms.Button BuyBTN;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
