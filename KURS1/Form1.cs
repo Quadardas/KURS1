@@ -46,10 +46,9 @@ namespace KURS1
                 case 3: selectedTable = "Единица_измерения"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Наименование, Краткое_Наименование", "Единица_измерения", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Единица_измерения", null).Tables[0].DefaultView; break;
                 case 4: selectedTable = "Магазин"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Название, Краткое_Название", "Магазин", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Магазин", null).Tables[0].DefaultView; break;
                 case 5: selectedTable = "Накладная"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Дата_Накладной, Номер_Накладной", "Накладная", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Накладная", null).Tables[0].DefaultView; break;
-                //case 6: selectedTable = "Поступление"; dataGridView1.DataSource = works.dataSet("Дата_поступления, Код_накладной", "Поступление", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Поступление", null).Tables[0].DefaultView; break;
                 case 6: selectedTable = "Товар"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Товар.Наименование, Количество, Цена, Описание, Вид_Товара.Вид_Товара as ВидТовара, Единица_Измерения.Наименование as НаименованиеЕдИзмер, Единица_Измерения.Краткое_Наименование as КрНаименованиеЕдИзмер, Накладная.Номер_Накладной as НомерНакладной", "Товар, Вид_Товара, Единица_Измерения, Товары_Накладных, Накладная", "WHERE Товар.TypeID = Вид_Товара.Код AND Товар.MeasureID = Единица_Измерения.Код AND Товар.Код = Товары_Накладных.Код_Товара AND Накладная.Код = Товары_Накладных.Код_Накладной").Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
                 case 7: selectedTable = "Учет_Товара"; ComboUpdates(); dataGridView1.DataSource = works.dataSet("Дата_Продажи, Количество, Сумма_Продажи", "Учет_Товара", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Учет_товара", null).Tables[0].DefaultView; break;
-                
+                case 8: selectedTable = "Купить товар"; dataGridView1.DataSource = works.dataSet("Наименование, Цена", "Товар", null).Tables[0].DefaultView; dataGridView2.DataSource = works.dataSet("*", "Товар", null).Tables[0].DefaultView; break;
             }
         }
 
@@ -359,9 +358,19 @@ namespace KURS1
         private void AddClientBTN_Click(object sender, EventArgs e)
         {
             Works database = new Works(Credentials);
+            int CardNum = 10000;
             listBox1.Items.Add(database.addClient(NameClientTB.Text, FamClientTB.Text, OtchClientTB.Text, dateClientTP.Value, Convert.ToInt64(PhoneClientTB.Text), GetDirCode("Паспорт",PassIDCB.SelectedItem.ToString(), 2)));
+            int clID = GetDirCode("Клиент", NameClientTB.Text, 1);
+            listBox1.Items.Add(database.CardNum(CardNum, 0, clID));
+            CardNum++;
+            
         }
 
+        private void CheckDisc()
+        {
+            
+
+        }
        
     }
 }
